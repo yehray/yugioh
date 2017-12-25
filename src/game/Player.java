@@ -3,7 +3,7 @@ package game;
 public class Player {
 
     private String playerName;
-    private int lifepoints;
+    public int lifepoints;
     private Hand hand;
     private Deck deck;
     private Field field;
@@ -36,8 +36,22 @@ public class Player {
         field = new Field(this);
     }
 
-    public Boolean selectCard(Card card){
+    public Boolean selectCardInHand(Card card){
         if(hand.getCardsInHand().contains(card)){
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean selectMonsterCard(Card card){
+        if(field.getMonsters().contains(card)){
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean selectSpellCard(Card card){
+        if(field.getSpells().contains(card)){
             return true;
         }
         return false;
@@ -49,19 +63,31 @@ public class Player {
         }
     }
 
-    public void attack(Card monsterCard, Card opponentMonsterCard){
+    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent){
+        if(field.getPhase() == "BATTLE PHASE"){
+            if(monsterCard.getAttack() >= opponentMonsterCard.getAttack()){
+                opponent.field.removeMonster(opponentMonsterCard);
+                opponent.field.addToGraveyard(opponentMonsterCard);
+                opponent.lifepoints = opponent.lifepoints - (monsterCard.getAttack() - opponentMonsterCard.getAttack());
+            }
+            if(monsterCard.getAttack() < opponentMonsterCard.getAttack()){
+                field.removeMonster(monsterCard);
+                field.addToGraveyard(monsterCard);
+                this.lifepoints = this.lifepoints - (opponentMonsterCard.getAttack() - monsterCard.getAttack());
+            }
+        }
 
     }
 
-    public void activateSpell(Card spellCard){
+    public void activateSpell(SpellCard spellCard, Player opponent){
         field.setSpell(spellCard);
     }
 
-    public void setSpell(Card spellCard){
+    public void setSpell(SpellCard spellCard){
         field.setSpell(spellCard);
     }
 
-    public void activateTrap(Card trapCard){
+    public void activateTrap(Card trapCard, Player opponent){
 
     }
 
