@@ -64,7 +64,7 @@ public class Player {
     }
 
     public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent){
-        if(field.getPhase() == "BATTLE PHASE"){
+        if(field.getPhase() == "BATTLE PHASE" && selectMonsterCard(monsterCard)){
             if(monsterCard.getAttack() >= opponentMonsterCard.getAttack()){
                 opponent.field.removeMonster(opponentMonsterCard);
                 opponent.field.addToGraveyard(opponentMonsterCard);
