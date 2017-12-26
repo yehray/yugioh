@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Field {
 
     private String fieldSide;
-    private ArrayList<Card> monsterZone;
-    private ArrayList<Card> spellZone;
+    private ArrayList<MonsterCard> monsterZone;
+    private ArrayList<SpellCard> spellZone;
     private ArrayList<Card> graveyard;
     public String phase;
 
@@ -14,11 +14,11 @@ public class Field {
         return fieldSide;
     }
 
-    public ArrayList<Card> getMonsters() {
+    public ArrayList<MonsterCard> getMonsters() {
         return monsterZone;
     }
 
-    public ArrayList<Card> getSpells() {
+    public ArrayList<SpellCard> getSpells() {
         return spellZone;
     }
 
@@ -32,8 +32,8 @@ public class Field {
 
     public Field(Player player){
         fieldSide = player.getPlayerName();
-        monsterZone = new ArrayList<Card>();
-        spellZone = new ArrayList<Card>();
+        monsterZone = new ArrayList<MonsterCard>();
+        spellZone = new ArrayList<SpellCard>();
         graveyard = new ArrayList<Card>();
         phase = "MAIN PHASE 1";
     }

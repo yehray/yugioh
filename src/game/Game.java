@@ -5,6 +5,7 @@ public class Game {
     private Player player;
     private Player opponent;
     private Player currentPlayer;
+    private Player winner;
 
     public Game(){
 
@@ -16,7 +17,7 @@ public class Game {
 
     public void setPlayer(Player newPlayer, int lifepoints){
         this.player = newPlayer;
-        player.lifepoints = 8000;
+        player.lifepoints = lifepoints;
     }
 
     public Player getOpponent(){
@@ -25,16 +26,57 @@ public class Game {
 
     public void setOpponent(Player opponentPlayer, int lifepoints){
         this.opponent = opponentPlayer;
-        opponent.lifepoints = 8000;
+        opponent.lifepoints = lifepoints;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
     }
 
     public void switchPlayer(){
-        if(currentPlayer == player){
-            currentPlayer = opponent;
+        if(winner == null) {
+            if (currentPlayer == player) {
+                currentPlayer = opponent;
+                opponent.drawCard();
+            } else {
+                currentPlayer = player;
+                player.drawCard();
+            }
+        }
+    }
+
+    public void createDeck(Deck deck){
+
+    }
+
+    public void startNewGame(){
+        Deck playerDeck = new Deck();
+        createDeck(playerDeck);
+        Deck opponentDeck = new Deck();
+        createDeck(opponentDeck);
+
+        Player player = new Player("player", 8000, playerDeck);
+        Player opponent = new Player("opponent", 8000, opponentDeck);
+        for(int i = 0; i < 5; i ++){
+            opponent.drawCard();
+            opponent.drawCard();
+        }
+
+        int r = (int)(2*Math.random());
+        if(r == 0){
+            player.drawCard();
         }
         else{
-            currentPlayer = player;
+            opponent.drawCard();
         }
+    }
+
+    public void endGame(){
+
     }
 
 
