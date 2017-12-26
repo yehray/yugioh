@@ -8,7 +8,7 @@ public class Field {
     private ArrayList<Card> monsterZone;
     private ArrayList<Card> spellZone;
     private ArrayList<Card> graveyard;
-    private String phase;
+    public String phase;
 
     public String fieldSide() {
         return fieldSide;

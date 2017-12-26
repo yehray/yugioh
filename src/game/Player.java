@@ -6,7 +6,8 @@ public class Player {
     public int lifepoints;
     private Hand hand;
     private Deck deck;
-    private Field field;
+    Field field;
+    boolean monsterSummoned;
 
     public String getPlayerName() {
         return playerName;
@@ -34,6 +35,7 @@ public class Player {
         hand = new Hand(this);
         deck = new Deck(this);
         field = new Field(this);
+        monsterSummoned = false;
     }
 
     public Boolean selectCardInHand(Card card){
@@ -58,25 +60,40 @@ public class Player {
     }
 
     public void summonMonster(MonsterCard monsterCard){
-        if(monsterCard.getLevel() < 4){
+        if(monsterCard.getLevel() < 4 && this.monsterSummoned == false){
             field.setMonster(monsterCard);
+            this.monsterSummoned = true;
         }
     }
 
-    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent){
-        if(field.getPhase() == "BATTLE PHASE" && selectMonsterCard(monsterCard)){
-            if(monsterCard.getAttack() >= opponentMonsterCard.getAttack()){
+    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) {
+        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "ATTACK") {
+            if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
                 opponent.field.removeMonster(opponentMonsterCard);
                 opponent.field.addToGraveyard(opponentMonsterCard);
                 opponent.lifepoints = opponent.lifepoints - (monsterCard.getAttack() - opponentMonsterCard.getAttack());
             }
-            if(monsterCard.getAttack() < opponentMonsterCard.getAttack()){
+            if (monsterCard.getAttack() < opponentMonsterCard.getAttack()) {
                 field.removeMonster(monsterCard);
                 field.addToGraveyard(monsterCard);
                 this.lifepoints = this.lifepoints - (opponentMonsterCard.getAttack() - monsterCard.getAttack());
             }
         }
+        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "DEFENSE") {
+            if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
+                opponent.field.removeMonster(opponentMonsterCard);
+                opponent.field.addToGraveyard(opponentMonsterCard);
+            }
+        }
+    }
 
+    public void switchMonsterMode(MonsterCard monsterCard){
+        if(monsterCard.getMode() == "ATTACK"){
+            monsterCard.setMode("DEFENSE");
+        }
+        else{
+            monsterCard.setMode("ATTACK");
+        }
     }
 
     public void activateSpell(SpellCard spellCard, Player opponent){
@@ -96,6 +113,39 @@ public class Player {
         hand.addCardToHand(card);
     }
 
+
+    public void changeToMainPhase1(){
+        this.getField().phase = "MAIN PHASE 1";
+    }
+
+    public void changeToMainPhase2(){
+        this.getField().phase = "MAIN PHASE 2";
+
+    }
+
+    public void changeToBattlePhase(){
+        this.getField().phase = "BATTLE PHASE";
+
+    }
+
+    public void endPhase(String phase){
+        if(phase == "MAIN PHASE 1"){
+            this.getField().phase = "BATTLE PHASE";
+        }
+        else if(phase == "BATTLE PHASE"){
+            this.getField().phase = "MAIN PHASE 2";
+        }
+        else{
+            endTurn();
+        }
+
+
+    }
+
+    public void endTurn(){
+        this.monsterSummoned = false;
+
+    }
 
 
 
