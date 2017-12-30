@@ -92,7 +92,7 @@ public class Player {
                 this.lifepoints = this.lifepoints - (opponentMonsterCard.getAttack() - monsterCard.getAttack());
             }
         }
-        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "DEFENSE"&& !monsterCard.getHaveAttacked()) {
+        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "DEFENSE" && !monsterCard.getHaveAttacked()) {
             if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
                 opponent.field.removeMonster(opponentMonsterCard);
                 opponent.field.addToGraveyard(opponentMonsterCard);
