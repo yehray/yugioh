@@ -61,7 +61,7 @@ public class Game {
 
         Player player = new Player("player", 8000, playerDeck);
         Player opponent = new Player("opponent", 8000, opponentDeck);
-        for(int i = 0; i < 5; i ++){
+        for(int i = 0; i < 6; i ++){
             opponent.drawCard();
             opponent.drawCard();
         }
