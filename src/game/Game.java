@@ -1,5 +1,9 @@
 package game;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Game {
 
     private Player player;
@@ -49,18 +53,36 @@ public class Game {
         }
     }
 
-    public void createDeck(Deck deck){
+    public void createDeck(Player player, String fileName){
+        try {
 
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            ArrayList<String> lines = new ArrayList<>();
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+            for(int i = 0; i < lines.size(); i++){
+                System.out.println(lines.get(i));
+            }
+
+
+        }
+
+        catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void startNewGame(){
-        Deck playerDeck = new Deck();
-        createDeck(playerDeck);
-        Deck opponentDeck = new Deck();
-        createDeck(opponentDeck);
 
-        Player player = new Player("player", 8000, playerDeck);
-        Player opponent = new Player("opponent", 8000, opponentDeck);
+
+        Player player = new Player("player", 8000);
+        Player opponent = new Player("opponent", 8000);
+
+        createDeck(player, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/YugiDeck.csv");
+        Deck opponentDeck = new Deck();
+
         for(int i = 0; i < 6; i ++){
             opponent.drawCard();
             opponent.drawCard();
