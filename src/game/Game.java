@@ -57,15 +57,18 @@ public class Game {
         try {
 
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            ArrayList<String> lines = new ArrayList<>();
+            ArrayList<String[]> lines = new ArrayList<>();
             String line = "";
             while ((line = reader.readLine()) != null) {
-                lines.add(line);
+                String[] lineSplit = line.split(",");
+                lines.add(lineSplit);
             }
             for(int i = 0; i < lines.size(); i++){
-                System.out.println(lines.get(i));
+                for(int j = 0; j < lines.get(i).length; j++){
+                    MonsterCard monsterCard = new MonsterCard(lines.get(i)[0], Integer.parseInt(lines.get(i)[1]), Integer.parseInt(lines.get(i)[2]), Integer.parseInt(lines.get(i)[3]));
+                    player.getDeck().addCardToDeck(monsterCard);
+                }
             }
-
 
         }
 
