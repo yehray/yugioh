@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
     private ArrayList<Card> deck;
@@ -13,9 +14,19 @@ public class Deck {
         deck = new ArrayList<Card>();
     }
 
-    private void shuffleDeck(){
+    public void shuffleDeck(){
+        Collections.shuffle(getDeck());
+    }
+
+    public void addCardToDeck(MonsterCard card){
+        deck.add(card);
 
     }
+
+//    public void addCardToDeck(SpellCard card){
+//        deck.add(MonsterCard);
+//
+//    }
 
     public Card drawOneCard(){
         return deck.remove(0);
