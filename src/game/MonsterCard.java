@@ -1,12 +1,21 @@
 package game;
 
 public class MonsterCard extends Card {
+    private String name;
     private int attack;
     private int defence;
     private int level;
     private String mode;
     private Boolean haveAttacked;
     private Boolean switchedMode;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getAttack() {
         return attack;
@@ -56,9 +65,12 @@ public class MonsterCard extends Card {
         this.switchedMode = switchedMode;
     }
 
-    public MonsterCard(){
+    public MonsterCard(String nm, int lvl, int atk, int dfc){
+        name = nm;
+        level = lvl;
+        attack = atk;
+        defence = dfc;
         switchedMode = true;
         haveAttacked = false;
-
     }
 }
