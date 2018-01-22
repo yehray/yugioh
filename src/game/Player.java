@@ -33,11 +33,11 @@ public class Player {
         return deck;
     }
 
-    public Player(String name, int lp, Deck playerDeck){
+    public Player(String name, int lp){
         playerName = name;
         lifepoints = lp;
         hand = new Hand(this);
-        deck = playerDeck;
+        deck = new Deck();
         field = new Field(this);
         monsterSummoned = false;
     }
@@ -63,10 +63,23 @@ public class Player {
         return false;
     }
 
-    public void summonMonster(MonsterCard monsterCard){
+    public void summonMonster(MonsterCard monsterCard, String mode){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
             if (monsterCard.getLevel() < 4 && this.monsterSummoned == false) {
                 field.setMonster(monsterCard);
+                monsterCard.setMode(mode);
+                this.monsterSummoned = true;
+            }
+        }
+    }
+
+    public void tributeSummon(MonsterCard monsterCard, MonsterCard tribute, String mode){
+        if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
+            if (monsterCard.getLevel() > 4 && this.monsterSummoned == false) {
+                field.removeMonster(tribute);
+                field.addToGraveyard(tribute);
+                field.setMonster(monsterCard);
+                monsterCard.setMode(mode);
                 this.monsterSummoned = true;
             }
         }
@@ -143,6 +156,7 @@ public class Player {
             endTurn();
         }
     }
+
 
     public void endTurn(){
         this.monsterSummoned = false;
