@@ -7,16 +7,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class SelectHandCardListener extends MouseAdapter{
 
     private gui.HandButton handbutton;
-    private boolean isFirstClick;
+    private ArrayList<HandButton> handButtonsList;
     private JPanel cardControlPanel;
     private JButton summonButton;
 
     public SelectHandCardListener(HandButton addedButton, GUI gui){
         handbutton = addedButton;
+        handButtonsList = gui.getActivePlayer().getHandPanel().getHandButtons();
         cardControlPanel = gui.getCardControlPanel();
         summonButton = new JButton("SUMMON");
         summonButton.setBounds(275,40, 125,50);
@@ -26,19 +28,17 @@ public class SelectHandCardListener extends MouseAdapter{
 
 
     public void mouseClicked(MouseEvent e) {
-        if(this.isFirstClick){
+            for(int i = 0; i < handButtonsList.size(); i++){
+                System.out.println(i);
+                handButtonsList.get(i).setBorder(BorderFactory.createEmptyBorder());
+                handButtonsList.get(i).setClicked(false);
+            }
             handbutton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
+            handbutton.setClicked(true);
             cardControlPanel.add(summonButton);
             cardControlPanel.revalidate();
             cardControlPanel.repaint();
-            this.isFirstClick = false;
-        }
-        else {
-            handbutton.setBorder(BorderFactory.createEmptyBorder());
-            cardControlPanel.revalidate();
-            cardControlPanel.repaint();
-            this.isFirstClick = true;
-        }
+
     }
 
     @Override
@@ -48,9 +48,12 @@ public class SelectHandCardListener extends MouseAdapter{
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if(this.isFirstClick) {
+        if(!handbutton.isClicked()) {
             handbutton.setBorder(BorderFactory.createEmptyBorder());
         }
+
     }
+
+
 
 }
