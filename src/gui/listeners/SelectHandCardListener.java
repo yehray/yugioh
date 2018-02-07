@@ -1,10 +1,7 @@
 package gui.listeners;
 
 import game.MonsterCard;
-import gui.FieldPanel;
-import gui.HandButton;
-import gui.HandPanel;
-import gui.PlayerPanel;
+import gui.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,16 +13,14 @@ public class SelectHandCardListener extends MouseAdapter{
     private gui.HandButton handbutton;
     private boolean isFirstClick;
     private JPanel cardControlPanel;
-    private FieldPanel fieldPanel;
-    private HandPanel handPanel;
     private JButton summonButton;
 
-    public SelectHandCardListener(HandButton addedButton, JPanel addedPanel, PlayerPanel playerPanel){
+    public SelectHandCardListener(HandButton addedButton, GUI gui){
         handbutton = addedButton;
-        cardControlPanel = addedPanel;
-        fieldPanel = playerPanel.getFieldPanel();
-        handPanel = playerPanel.getHandPanel();
-        isFirstClick = true;
+        cardControlPanel = gui.getCardControlPanel();
+        summonButton = new JButton("SUMMON");
+        summonButton.setBounds(275,40, 125,50);
+        summonButton.addMouseListener(new SummonMonsterListener(gui, handbutton.getCard()));
 
     }
 
@@ -33,15 +28,15 @@ public class SelectHandCardListener extends MouseAdapter{
     public void mouseClicked(MouseEvent e) {
         if(this.isFirstClick){
             handbutton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
-            JButton summonButton = new JButton("SUMMON");
-            summonButton.setBounds(300,0, 125,50);
-//            summonButton.addActionListener(new SummonMonsterListener(fieldPanel));
             cardControlPanel.add(summonButton);
             cardControlPanel.revalidate();
+            cardControlPanel.repaint();
             this.isFirstClick = false;
         }
         else {
             handbutton.setBorder(BorderFactory.createEmptyBorder());
+            cardControlPanel.revalidate();
+            cardControlPanel.repaint();
             this.isFirstClick = true;
         }
     }

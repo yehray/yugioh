@@ -2,6 +2,7 @@ package gui.listeners;
 
 import game.MonsterCard;
 import gui.FieldPanel;
+import gui.GUI;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,14 +10,17 @@ import java.awt.event.MouseEvent;
 public class SummonMonsterListener extends MouseAdapter {
     private FieldPanel fieldPanel;
     private MonsterCard monsterCard;
-    public SummonMonsterListener(FieldPanel field, MonsterCard summonedMonster){
-        fieldPanel = field;
+    private GUI gui;
+    public SummonMonsterListener(GUI currentGUI, MonsterCard summonedMonster){
         monsterCard = summonedMonster;
+        gui = currentGUI;
 
     }
 
     public void mouseClicked(MouseEvent e) {
-        fieldPanel.summonMonster(monsterCard);
+        gui.summonMonster(monsterCard);
+        fieldPanel.revalidate();
+        fieldPanel.repaint();
     }
 }
 
