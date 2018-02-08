@@ -1,63 +1,51 @@
 package gui.listeners;
 
+import gui.FieldCardButton;
 import gui.GUI;
-import gui.MonsterButton;
+import gui.HandButton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class SelectFieldCardListener extends MouseAdapter{
-    JButton fieldMonsterButton;
-    JPanel cardControlPanel;
-    JButton attackButton;
-    JButton defenseModeButton;
-    private boolean isFirstClick;
+    private FieldCardButton fieldCardButton;
+    private ArrayList<FieldCardButton> emptySpotsOnField;
+    private ArrayList<HandButton> handButtonsList;
 
-
-    public SelectFieldCardListener(MonsterButton monsterButton, GUI gui){
-        isFirstClick = true;
-        fieldMonsterButton = monsterButton;
-        cardControlPanel = gui.getCardControlPanel();
-
-        attackButton = new JButton("ATTACK");
-        attackButton.setBounds(275,40, 125,50);
-        attackButton.addMouseListener(new AttackListener());
-
-        defenseModeButton = new JButton("DEFENSE MODE");
-        defenseModeButton.setBounds(275,80, 125,50);
-        defenseModeButton.addMouseListener(new AttackListener());
-
+    public SelectFieldCardListener(FieldCardButton fieldButton, GUI gui){
+        fieldCardButton = fieldButton;
+        handButtonsList = gui.getActivePlayer().getHandPanel().getHandButtons();
+        emptySpotsOnField = gui.getActivePlayer().getFieldPanel().getEmptySpotsOnField();
     }
+
+    public boolean isSelected(){
+        boolean isSelected = false;
+        for(int i = 0; i < handButtonsList.size(); i++){
+            if(handButtonsList.get(i).isClicked()){
+                isSelected = true;
+                break;
+            }
+        }
+        return isSelected;
+    }
+
 
     public void mouseClicked(MouseEvent e) {
-        if(this.isFirstClick){
-            fieldMonsterButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
-            cardControlPanel.add(attackButton);
-            cardControlPanel.add(defenseModeButton);
-            cardControlPanel.revalidate();
-            cardControlPanel.repaint();
-            this.isFirstClick = false;
-        }
-        else {
-            fieldMonsterButton.setBorder(BorderFactory.createEmptyBorder());
-            cardControlPanel.revalidate();
-            cardControlPanel.repaint();
-            this.isFirstClick = true;
+        if(isSelected()) {
+            for (int i = 0; i < emptySpotsOnField.size(); i++) {
+                emptySpotsOnField.get(i).setBorder(BorderFactory.createEmptyBorder());
+                emptySpotsOnField.get(i).setHighlighted(false);
+            }
+            fieldCardButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
+            fieldCardButton.setHighlighted(true);
+            fieldCardButton.revalidate();
+            fieldCardButton.repaint();
         }
     }
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        fieldMonsterButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-//        if(this.isFirstClick) {
-        fieldMonsterButton.setBorder(BorderFactory.createEmptyBorder());
-//        }
-    }
+    
 
 }
