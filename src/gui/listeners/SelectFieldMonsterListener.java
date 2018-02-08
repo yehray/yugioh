@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class SelectFieldCardListener extends MouseAdapter{
+public class SelectFieldMonsterListener extends MouseAdapter{
     JButton fieldMonsterButton;
     JPanel cardControlPanel;
     JButton attackButton;
@@ -16,7 +16,7 @@ public class SelectFieldCardListener extends MouseAdapter{
     private boolean isFirstClick;
 
 
-    public SelectFieldCardListener(MonsterButton monsterButton, GUI gui){
+    public SelectFieldMonsterListener(MonsterButton monsterButton, GUI gui){
         isFirstClick = true;
         fieldMonsterButton = monsterButton;
         cardControlPanel = gui.getCardControlPanel();
