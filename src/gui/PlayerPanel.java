@@ -9,16 +9,20 @@ public class PlayerPanel extends JPanel{
     private JLabel DeckLabel;
     private JLabel opponentLifePoints;
     private HandPanel handPanel;
+    private FieldPanel fieldPanel;
     private String selectMonsterInHand;
     private String selectMonsterInField;
+    private JPanel cardControlPanel;
 
 
-    public PlayerPanel(String name, JPanel addedPanel){
-        this.setName(name);
+    public PlayerPanel(GUI gui){
         this.setOpaque(false);
         this.setLayout(null);
 
-        FieldPanel fieldPanel = new FieldPanel();
+
+        cardControlPanel = gui.getCardControlPanel();
+
+        fieldPanel = new FieldPanel(gui);
         fieldPanel.setBounds(0,0,850,384);
         this.add(fieldPanel);
 
@@ -33,12 +37,9 @@ public class PlayerPanel extends JPanel{
         graveyardButton.setBounds(32,180,100,150);
         this.add(graveyardButton);
 
-        HandPanel handPanel = new HandPanel(addedPanel);
+        handPanel = new HandPanel(gui);
         handPanel.setBounds(890,165,315,200);
         this.add(handPanel);
-
-
-
 
 //        opponentLifePoints = new JLabel("Life Points");
 //        opponentLifePoints.setFont(new Font("Papyrus", Font.BOLD, 30));
@@ -51,5 +52,13 @@ public class PlayerPanel extends JPanel{
 
     public HandPanel getHandPanel() {
         return handPanel;
+    }
+
+    public FieldPanel getFieldPanel(){
+        return fieldPanel;
+    }
+
+    public GUI getGui() {
+        return gui;
     }
 }

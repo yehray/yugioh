@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 public class MonsterButton extends JButton implements MouseListener {
 
     public MonsterButton(ImageIcon imageIcon){
+        this.setIcon(imageIcon);
         this.setPreferredSize(new Dimension(100,150));
 
     }

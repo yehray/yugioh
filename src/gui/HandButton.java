@@ -1,24 +1,31 @@
 package gui;
 
+import game.Card;
+import game.MonsterCard;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class HandButton extends JButton {
+    private MonsterCard card;
+    private boolean isClicked;
 
-    private boolean firstClick;
-
-    public HandButton(ImageIcon imageIcon){
-        firstClick = true;
+    public HandButton(ImageIcon imageIcon, MonsterCard c){
+        isClicked = false;
         this.setIcon(imageIcon);
+        card = c;
         this.setPreferredSize(new Dimension(100, 150));
-
     }
 
-    public boolean isFirstClick() {
-        return firstClick;
+    public MonsterCard getCard() {
+        return card;
     }
 
-    public void setFirstClick(boolean firstClick) {
-        this.firstClick = firstClick;
+    public void setClicked(boolean clicked) {
+        isClicked = clicked;
+    }
+
+    public boolean isClicked() {
+        return isClicked;
     }
 }

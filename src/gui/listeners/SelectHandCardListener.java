@@ -15,21 +15,24 @@ public class SelectHandCardListener extends MouseAdapter{
     private ArrayList<HandButton> handButtonsList;
     private JPanel cardControlPanel;
     private JButton summonButton;
+    private boolean highlight;
+    private GUI gui;
 
-    public SelectHandCardListener(HandButton addedButton, GUI gui){
+    public SelectHandCardListener(HandButton addedButton, GUI g){
+        gui = g;
         handbutton = addedButton;
+        highlight = false;
         handButtonsList = gui.getActivePlayer().getHandPanel().getHandButtons();
         cardControlPanel = gui.getCardControlPanel();
         summonButton = new JButton("SUMMON");
         summonButton.setBounds(275,40, 125,50);
-        summonButton.addMouseListener(new SummonMonsterListener(gui, handbutton.getCard()));
+        summonButton.addMouseListener(new SummonMonsterListener(gui, handbutton));
 
     }
 
 
     public void mouseClicked(MouseEvent e) {
             for(int i = 0; i < handButtonsList.size(); i++){
-                System.out.println(i);
                 handButtonsList.get(i).setBorder(BorderFactory.createEmptyBorder());
                 handButtonsList.get(i).setClicked(false);
             }
@@ -38,7 +41,6 @@ public class SelectHandCardListener extends MouseAdapter{
             cardControlPanel.add(summonButton);
             cardControlPanel.revalidate();
             cardControlPanel.repaint();
-
     }
 
     @Override

@@ -1,16 +1,16 @@
 package gui;
+import game.Field;
 import game.Game;
 import game.MonsterCard;
 import gui.listeners.*;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.util.ArrayList;
 
 public class GUI extends JFrame {
 
+    private Game game;
     private JLabel boardBackground;
     private JLabel cardBackGroundLarge;
     private JPanel cardControlPanel;
@@ -25,8 +25,8 @@ public class GUI extends JFrame {
 
     public GUI(){
 
-        Game newGame = new Game();
-        newGame.startNewGame();
+        game = new Game();
+        game.startNewGame();
 
         this.setTitle("Yu-Gi-Oh!");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,11 +48,26 @@ public class GUI extends JFrame {
         this.add(cardControlPanel);
         this.add(boardBackground);
 
+
+
+
+
+
+
         MonsterCard summonedSkull = new MonsterCard("Summoned Skull", 5, 2500, 1300);
         MonsterCard blueEyes = new MonsterCard("Blue Eyes White Dragon", 8, 3000, 2500);
+        MonsterCard darkMagician = new MonsterCard("Dark Magician", 8, 3000, 2500);
+        MonsterCard gaiaTheFierceKnight = new MonsterCard("Gaia the Fierce Knight", 7, 2300, 2000);
+        MonsterCard beaverWarrior = new MonsterCard("Beaver Warrior", 8, 3000, 2500);
+
+
 
         addToHand(summonedSkull);
+        addToHand(gaiaTheFierceKnight);
+        addToHand(beaverWarrior);
+        addToHand(darkMagician);
         addToHand(blueEyes);
+
 
         this.setVisible(true);
 
@@ -79,25 +94,64 @@ public class GUI extends JFrame {
         return cardControlPanel;
     }
 
+
+    public void setGame(){
+        ImageIcon monsterCardZone = new ImageIcon(this.getClass().getResource("resources/monsterCardZone.jpg"));
+        ImageIcon spellCardZone = new ImageIcon(this.getClass().getResource("resources/spellCardZone.jpg"));
+
+
+        for(int i = 0; i < 5; i++){
+            FieldCardButton monsterCardZoneButton = new FieldCardButton(monsterCardZone);
+            monsterCardZoneButton.addMouseListener(new SelectFieldCardListener(monsterCardZoneButton, this));
+//            monsterCardZoneButton.addMouseListener(new HighlightArea(monsterCardZoneButton, cardControlPanel));
+            this.getActivePlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton);
+            this.getActivePlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
+            FieldCardButton spellCardZoneButton = new FieldCardButton(spellCardZone);
+            spellCardZoneButton.addMouseListener(new HighlightArea(spellCardZoneButton, cardControlPanel));
+            this.getActivePlayer().getFieldPanel().getSpellPanel().add(spellCardZoneButton);
+            this.getActivePlayer().getFieldPanel().revalidate();
+            this.getActivePlayer().getFieldPanel().repaint();
+        }
+    }
+
+
     public void addToHand(MonsterCard card){
         HandButton addedCard = new HandButton(card.getImageSmall(), card);
+        addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
         addedCard.addMouseListener(new SelectHandCardListener(addedCard, this));
         addedCard.addMouseListener(new PopUpListener(this.getActivePlayer().getHandPanel().getCurrentLayout()));
-        addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
         this.getActivePlayer().getHandPanel().getHand().add(addedCard);
+        this.getActivePlayer().getHandPanel().getHandButtons().add(addedCard);
         addedCard.setVisible(true);
         addedCard.validate();
     }
 
     public MonsterButton summonMonster(MonsterCard monsterCard){
         JPanel monsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
-        monsterPanel.remove(0);
         MonsterButton monsterButton = new MonsterButton(monsterCard.getImageSmall());
-        monsterButton.addMouseListener(new SelectFieldCardListener(monsterButton, this));
+        monsterButton.addMouseListener( new ShowLargerImage(cardControlPanel, monsterCard));
+        monsterButton.addMouseListener(new SelectFieldMonsterListener(monsterButton, this));
+
+        ArrayList<FieldCardButton> emptySpotsOnField = this.getActivePlayer().getFieldPanel().getEmptySpotsOnField();
+        for(int i = 0; i < emptySpotsOnField.size(); i++){
+            if(emptySpotsOnField.get(i).isHighlighted()){
+                monsterPanel.remove(emptySpotsOnField.get(i));
+            }
+        }
+
         monsterPanel.add(monsterButton);
+//        e.getSource();
+        this.getActivePlayer().getHandPanel().getHand().remove(0);
         monsterPanel.revalidate();
         monsterPanel.repaint();
         return monsterButton;
+    }
+
+
+
+    public void attack(MonsterCard monster, MonsterCard opponentMonster){
+//        game.getPlayer().attack();
+
     }
 
 

@@ -22,6 +22,7 @@ public class HandPanel extends JPanel{
     private GUI gui;
 
     public HandPanel(GUI addedGUI){
+        this.setOpaque(false);
         gui = addedGUI;
         cardControlPanel = gui.getCardControlPanel();
         playerPanel = gui.getActivePlayer();
@@ -29,6 +30,7 @@ public class HandPanel extends JPanel{
         layout = new OverlapLayout(new Point(25, 0));
         layout.setPopupInsets(new Insets(15,10,0,0));
         hand.setLayout(layout);
+        hand.setOpaque(false);
         handButtons = new ArrayList<HandButton>();
         this.setLayout(new FlowLayout());
         this.add(hand);
@@ -47,6 +49,7 @@ public class HandPanel extends JPanel{
 //        addedCard.addMouseListener(new PopUpListener(layout));
 //        addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
         hand.add(addedCard);
+        handButtons.add(addedCard);
         addedCard.setVisible(true);
         addedCard.validate();
 
@@ -58,5 +61,11 @@ public class HandPanel extends JPanel{
 
     public JPanel getHand(){
         return hand;
+    }
+
+
+
+    public ArrayList<HandButton> getHandButtons() {
+        return handButtons;
     }
 }
