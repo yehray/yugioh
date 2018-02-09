@@ -14,6 +14,7 @@ public class SelectFieldMonsterListener extends MouseAdapter{
     JButton attackButton;
     JButton defenseModeButton;
     private boolean isFirstClick;
+    private Object fieldSource;
 
 
     public SelectFieldMonsterListener(MonsterButton monsterButton, GUI gui){
@@ -32,6 +33,7 @@ public class SelectFieldMonsterListener extends MouseAdapter{
     }
 
     public void mouseClicked(MouseEvent e) {
+        fieldSource = e.getSource();
         if(this.isFirstClick){
             fieldMonsterButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
             cardControlPanel.add(attackButton);
@@ -46,6 +48,10 @@ public class SelectFieldMonsterListener extends MouseAdapter{
             cardControlPanel.repaint();
             this.isFirstClick = true;
         }
+    }
+
+    public Object getFieldSource() {
+        return fieldSource;
     }
 
     @Override

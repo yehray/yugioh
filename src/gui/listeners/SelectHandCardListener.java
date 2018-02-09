@@ -32,10 +32,14 @@ public class SelectHandCardListener extends MouseAdapter{
 
 
     public void mouseClicked(MouseEvent e) {
+        handbutton.setCardSource(e.getSource());
+
             for(int i = 0; i < handButtonsList.size(); i++){
                 handButtonsList.get(i).setBorder(BorderFactory.createEmptyBorder());
-                handButtonsList.get(i).setClicked(false);
+//                handButtonsList.get(i).setClicked(false);
             }
+
+
             handbutton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
             handbutton.setClicked(true);
             cardControlPanel.add(summonButton);
