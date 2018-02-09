@@ -8,6 +8,8 @@ import java.awt.event.MouseListener;
 public class FieldCardButton extends JButton {
 
     private boolean highlighted;
+    private int index;
+
 
     public FieldCardButton(ImageIcon imageIcon){
         highlighted = false;
@@ -21,5 +23,13 @@ public class FieldCardButton extends JButton {
 
     public void setHighlighted(boolean highlighted) {
         this.highlighted = highlighted;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }
