@@ -36,24 +36,9 @@ public class HandPanel extends JPanel{
         this.add(hand);
         this.setOpaque(false);
 
-        MonsterCard summonedSkull = new MonsterCard("Summoned Skull", 5, 2500, 1300);
-        MonsterCard blueEyes = new MonsterCard("Blue Eyes White Dragon", 8, 3000, 2500);
-
-
 
     }
 
-    public void addButton(MonsterCard card){
-        HandButton addedCard = new HandButton(card.getImageSmall(), card);
-//        addedCard.addMouseListener(new SelectHandCardListener(addedCard, gui));
-//        addedCard.addMouseListener(new PopUpListener(layout));
-//        addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
-        hand.add(addedCard);
-        handButtons.add(addedCard);
-        addedCard.setVisible(true);
-        addedCard.validate();
-
-    }
 
     public OverlapLayout getCurrentLayout() {
         return layout;

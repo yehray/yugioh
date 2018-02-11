@@ -56,12 +56,18 @@ public class SelectFieldMonsterListener extends MouseAdapter{
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        fieldMonsterButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
+        if(this.isFirstClick) {
+            fieldMonsterButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
+        }
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {
-        fieldMonsterButton.setBorder(BorderFactory.createEmptyBorder());
+    public void mouseExited(MouseEvent e){
+        if(this.isFirstClick){
+            fieldMonsterButton.setBorder(BorderFactory.createEmptyBorder());
+        }
     }
+
+
 
 }

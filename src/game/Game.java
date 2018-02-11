@@ -84,10 +84,10 @@ public class Game {
         Player opponent = new Player("opponent", 8000);
 
         createDeck(player, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/YugiDeck.csv");
-        Deck opponentDeck = new Deck();
+        createDeck(opponent, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/KaibaDeck.csv");
 
         for(int i = 0; i < 6; i ++){
-            opponent.drawCard();
+            player.drawCard();
             opponent.drawCard();
         }
 

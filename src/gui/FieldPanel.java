@@ -13,19 +13,15 @@ public class FieldPanel extends JPanel{
     private JPanel monsterPanel;
     private JPanel spellPanel;
     private JPanel cardControlPanel;
-    private PlayerPanel playerPanel;
     private ArrayList<FieldCardButton> emptySpotsOnField;
     private ArrayList<MonsterCard> monsterCardsOnField;
-    private ArrayList<JButton> cardsOnField;
+    private ArrayList<FieldCardButton> cardsOnField;
 
-    public FieldPanel(GUI gui){
+    public FieldPanel(GUI gui, String player){
         cardControlPanel = gui.getCardControlPanel();
-        playerPanel = gui.getActivePlayer();
-
         emptySpotsOnField = new ArrayList<FieldCardButton>();
         monsterCardsOnField = new ArrayList<MonsterCard>();
-        cardsOnField = new ArrayList<JButton>();
-
+        cardsOnField = new ArrayList<FieldCardButton>();
 
         this.setOpaque(false);
         this.setLayout(null);
@@ -33,42 +29,32 @@ public class FieldPanel extends JPanel{
         GridLayout monsterZoneLayout = new GridLayout(1,5);
         GridLayout spellZoneLayout = new GridLayout(1,5);
 
-
+        spellPanel = new JPanel();
         monsterPanel = new JPanel();
-        monsterPanel.setBounds(160,10,680,150);
+
+
+
+        if(player == "opponent") {
+            monsterPanel.setBounds(160, 180, 680, 150);
+            spellPanel.setBounds(160, 10, 680, 150);
+        }
+        else{
+            monsterPanel.setBounds(160, 10, 680, 150);
+            spellPanel.setBounds(160, 180, 680, 150);
+        }
+
+
         monsterPanel.setLayout(monsterZoneLayout);
-        this.add(monsterPanel);
         monsterZoneLayout.setHgap(40);
         monsterPanel.setOpaque(false);
 
-
-        spellPanel = new JPanel();
-        spellPanel.setBounds(160,180,680,150);
         spellPanel.setLayout(spellZoneLayout);
-        this.add(spellPanel);
         spellZoneLayout.setHgap(40);
         spellPanel.setOpaque(false);
 
 
-
-
-
-
-//        monsterPanel = new JPanel();
-//        monsterPanel.setBounds(160,10,850,180);
-//        monsterPanel.setLayout(monsterZoneLayout);
-//        this.add(monsterPanel);
-//        monsterPanel.setOpaque(false);
-
-//        spellPanel = new JPanel();
-//        spellPanel.setBounds(160,180,850,170);
-//        spellPanel.setLayout(spellZoneLayout);
-//        this.add(spellPanel);
-//        spellPanel.setOpaque(false);
-
-
-
-
+        this.add(monsterPanel);
+        this.add(spellPanel);
 
     }
 
@@ -88,15 +74,8 @@ public class FieldPanel extends JPanel{
         return spellPanel;
     }
 
-    public ArrayList<JButton> getCardsOnField() {
+    public ArrayList<FieldCardButton> getCardsOnField() {
         return cardsOnField;
     }
 
-
-    //    public SpellButton summonMonster(SpellCard spellCard){
-//        GetCardImage cardImage = new GetCardImage(spellCard, "s'");
-//        SpellButton spellButton = new SpellButton(cardImage.getCardImage());
-//        spellPanel.add(spellButton);
-//        return spellButton;
-//    }
 }

@@ -11,16 +11,6 @@ public class MonsterCard extends Card {
     private String mode;
     private Boolean haveAttacked;
     private Boolean switchedMode;
-    private ImageIcon imageSmall;
-    private ImageIcon imageLarge;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getAttack() {
         return attack;
@@ -70,14 +60,14 @@ public class MonsterCard extends Card {
         this.switchedMode = switchedMode;
     }
 
+
+
     public MonsterCard(String nm, int lvl, int atk, int dfc){
-        name = nm;
+        setName(nm);
         level = lvl;
         attack = atk;
         defence = dfc;
         switchedMode = true;
         haveAttacked = false;
-        imageSmall = new ImageIcon(this.getClass().getResource("/gui/resources/" + name + ".jpg"));
-        imageLarge = new ImageIcon(this.getClass().getResource("/gui/resources/" + name + " Large.jpg"));
     }
 }
