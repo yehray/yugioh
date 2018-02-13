@@ -18,6 +18,7 @@ public class GUI extends JFrame {
     private JLabel activeLifePoints;
     private JLabel opponentLifePoints;
     private InfoPanel infoPanel;
+    private PhaseControlPanel phaseControlPanel;
 //    private JPanel cardImagePanel;
 
 
@@ -45,7 +46,7 @@ public class GUI extends JFrame {
         opponentPlayer = new PlayerPanel(this, "opponent");
         opponentPlayer.setBounds(0,5,1366,400);
 
-        PhaseControlPanel phaseControlPanel = new PhaseControlPanel(this);
+        phaseControlPanel = new PhaseControlPanel(this);
         phaseControlPanel.setBounds(1180,620,140,105);
 
         InfoPanel infoPnl = new InfoPanel(this);
@@ -103,6 +104,17 @@ public class GUI extends JFrame {
         return cardControlPanel;
     }
 
+    public InfoPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public PhaseControlPanel getPhaseControlPanel() {
+        return phaseControlPanel;
+    }
+
+    public Game getGame() {
+        return game;
+    }
 
     public void setGame(PlayerPanel player){
         ImageIcon monsterCardZone = new ImageIcon(this.getClass().getResource("resources/monsterCardZone.jpg"));
@@ -188,9 +200,25 @@ public class GUI extends JFrame {
     }
 
     public void changePhase(){
-        String currentPhase = game.getPlayer().getField().getPhase();
-        game.getPlayer().endPhase(currentPhase);
-        infoPanel.getCurrentPhasePanel().setText(game.getPlayer().getField().getPhase());
+        String currentPhase = game.getCurrentPlayer().getField().getPhase();
+        game.getCurrentPlayer().endPhase(currentPhase);
+        String newPhase = game.getCurrentPlayer().getField().getPhase();
+        String currentPlayer = game.getCurrentPlayer().getPlayerName();
+
+        infoPanel.getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br>" + newPhase + "</html>");
+
+        if(newPhase == "MAIN PHASE 2"){
+            this.getPhaseControlPanel().remove(0);
+        }
+    }
+
+    public void endTurn(){
+        System.out.println(game.getCurrentPlayer().getPlayerName());
+        game.getPlayer().endTurn();
+        game.switchPlayer();
+        System.out.println(game.getCurrentPlayer().getPlayerName());
+        String currentPlayer = game.getCurrentPlayer().getPlayerName();
+        infoPanel.getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br> MAIN PHASE 1 </html>");
 
     }
 

@@ -16,6 +16,5 @@ public class PhaseListener extends MouseAdapter{
 
     public void mouseClicked(MouseEvent e) {
         gui.changePhase();
-
     }
 }

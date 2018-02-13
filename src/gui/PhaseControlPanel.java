@@ -1,5 +1,6 @@
 package gui;
 
+import gui.listeners.EndTurnListener;
 import gui.listeners.PhaseListener;
 
 import javax.swing.*;
@@ -21,6 +22,8 @@ public class PhaseControlPanel extends JPanel {
         JButton endPhaseButton = new JButton("END PHASE");
         endPhaseButton.addMouseListener(new PhaseListener(gui));
         JButton endTurnButton = new JButton("END TURN");
+        endTurnButton.addMouseListener(new EndTurnListener(gui));
+
 
 
         this.add(endPhaseButton);
