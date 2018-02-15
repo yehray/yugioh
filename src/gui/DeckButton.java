@@ -10,7 +10,6 @@ public class DeckButton extends JButton implements MouseListener {
     public DeckButton(ImageIcon imageIcon){
         this.setIcon(imageIcon);
         this.setPreferredSize(new Dimension(100,150));
-
     }
 
     @Override

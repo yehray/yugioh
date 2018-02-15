@@ -1,5 +1,6 @@
 package gui;
 
+import gui.listeners.AttackListener;
 import gui.listeners.EndTurnListener;
 import gui.listeners.PhaseListener;
 

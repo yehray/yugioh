@@ -13,7 +13,7 @@ public class MonsterActionListener extends MouseAdapter {
 
 
     public void mouseClicked(MouseEvent e) {
-        currentGame.getPlayer().attack();
+//        currentGame.getPlayer().attack();
 
     }
 }

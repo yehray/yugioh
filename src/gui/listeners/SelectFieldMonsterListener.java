@@ -9,26 +9,37 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class SelectFieldMonsterListener extends MouseAdapter{
-    JButton fieldMonsterButton;
+    MonsterButton fieldMonsterButton;
     JPanel cardControlPanel;
     JButton attackButton;
     JButton defenseModeButton;
     private boolean isFirstClick;
     private Object fieldSource;
+    private GUI gui;
 
 
-    public SelectFieldMonsterListener(MonsterButton monsterButton, GUI gui){
+    public SelectFieldMonsterListener(MonsterButton monsterButton, GUI addedGUI){
         isFirstClick = true;
+        gui = addedGUI;
         fieldMonsterButton = monsterButton;
         cardControlPanel = gui.getCardControlPanel();
 
         attackButton = new JButton("ATTACK");
         attackButton.setBounds(275,40, 125,50);
-        attackButton.addMouseListener(new AttackListener());
 
         defenseModeButton = new JButton("DEFENSE MODE");
         defenseModeButton.setBounds(275,150, 125,50);
         defenseModeButton.addMouseListener(new AttackListener());
+
+        attackButton.addMouseListener(new StartAttackListener(gui, attackButton, defenseModeButton));
+
+
+        cardControlPanel.remove(1);
+
+        cardControlPanel.add(attackButton);
+        cardControlPanel.add(defenseModeButton);
+        cardControlPanel.revalidate();
+        cardControlPanel.repaint();
 
     }
 

@@ -14,6 +14,8 @@ public class GUI extends JFrame {
     private JPanel cardControlPanel;
     private PlayerPanel activePlayer;
     private PlayerPanel opponentPlayer;
+    private PlayerPanel player1;
+    private PlayerPanel player2;
     private PlayerPanel opponent;
     private JLabel activeLifePoints;
     private JLabel opponentLifePoints;
@@ -40,11 +42,15 @@ public class GUI extends JFrame {
         cardControlPanel.setBounds(890,188,425,375);
         cardControlPanel.setOpaque(false);
 
-        activePlayer = new PlayerPanel(this, "player");
-        activePlayer.setBounds(0,400,1366,400);
+        player1 = new PlayerPanel(this, "player");
+        player1.setBounds(0,400,1366,400);
 
-        opponentPlayer = new PlayerPanel(this, "opponent");
-        opponentPlayer.setBounds(0,5,1366,400);
+        activePlayer = player1;
+
+        player2 = new PlayerPanel(this, "opponent");
+        player2.setBounds(0,5,1366,400);
+
+        opponentPlayer = player2;
 
         phaseControlPanel = new PhaseControlPanel(this);
         phaseControlPanel.setBounds(1180,620,140,105);
@@ -195,7 +201,20 @@ public class GUI extends JFrame {
 
 
     public void attack(MonsterCard monster, MonsterCard opponentMonster){
-//        game.getPlayer().attack();
+        if("Case" == game.getPlayer().attack(monster, opponentMonster, game.getOpponent())){
+            JPanel activeMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
+            JPanel opponentMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
+            ArrayList<FieldCardButton> cardsOnField = this.getActivePlayer().getFieldPanel().getCardsOnField();
+            int index = 0;
+            for(int i = 0; i < cardsOnField.size(); i++){
+                if(cardsOnField.get(i).isHighlighted()){
+                    index = cardsOnField.get(i).getIndex();
+                }
+            }
+            opponentMonsterPanel.remove(index);
+
+        }
+
 
     }
 
@@ -213,12 +232,22 @@ public class GUI extends JFrame {
     }
 
     public void endTurn(){
-        System.out.println(game.getCurrentPlayer().getPlayerName());
         game.getPlayer().endTurn();
         game.switchPlayer();
-        System.out.println(game.getCurrentPlayer().getPlayerName());
         String currentPlayer = game.getCurrentPlayer().getPlayerName();
         infoPanel.getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br> MAIN PHASE 1 </html>");
+        if(activePlayer == player1){
+            activePlayer = player2;
+            opponentPlayer = player1;
+        }
+        else{
+            activePlayer = player2;
+            opponentPlayer = player1;
+        }
+        phaseControlPanel = new PhaseControlPanel(this);
+        phaseControlPanel.setBounds(1180,620,140,105);
+        this.add(phaseControlPanel);
+
 
     }
 

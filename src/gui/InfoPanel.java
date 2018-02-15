@@ -16,29 +16,33 @@ public class InfoPanel extends JPanel{
             layout.setVgap(30);
             this.setLayout(layout);
             this.setOpaque(false);
+            String currentPlayer = gui.getGame().getPlayer().getPlayerName();
+            String currentPhase = gui.getGame().getPlayer().getField().getPhase();
+            int playerLP = gui.getGame().getPlayer().getLifepoints();
+            int opponentLP = gui.getGame().getOpponent().getLifepoints();
 
             int total = 8000;
 
-            JLabel lifePoints = new JLabel("LIFEPOINTS");
-            lifePoints.setFont(new Font("Arial", Font.BOLD, 20));
-            lifePoints.setForeground(Color.WHITE);
-            lifepointsLabel = lifePoints;
+            lifepointsLabel = new JLabel("LIFEPOINTS: " + playerLP);
+            lifepointsLabel.setFont(new Font("Papyrus", Font.BOLD, 20));
+            lifepointsLabel.setForeground(Color.WHITE);
 
-            JLabel currentPhase = new JLabel("MAIN PHASE 1");
-            currentPhase.setBounds(0,0,100,100);
-            currentPhase.setFont(new Font("Arial", Font.BOLD, 22));
-            currentPhase.setForeground(Color.WHITE);
-            currentPhase.setVerticalAlignment(JLabel.BOTTOM);
-            currentPhaseLabel = currentPhase;
 
-            JLabel opponentLifePoints = new JLabel("LIFEPOINTS");
-            opponentLifePoints.setFont(new Font("Arial", Font.BOLD, 20));
-            opponentLifePoints.setForeground(Color.WHITE);
-            opponentLifepointsLabel = opponentLifePoints;
+            JPanel phaseInfo = new JPanel();
 
-            this.add(lifePoints, layout.SOUTH);
-            this.add(currentPhase, layout.CENTER);
-            this.add(opponentLifePoints, layout.NORTH);
+            currentPhaseLabel = new JLabel("<html>" + currentPlayer + "<br>" + currentPhase + "</html>");
+            currentPhaseLabel.setBounds(0,0,100,100);
+            currentPhaseLabel.setFont(new Font("Papyrus", Font.BOLD, 22));
+            currentPhaseLabel.setForeground(Color.WHITE);
+            currentPhaseLabel.setVerticalAlignment(JLabel.BOTTOM);
+
+            opponentLifepointsLabel = new JLabel("LIFEPOINTS: " + opponentLP);
+            opponentLifepointsLabel.setFont(new Font("Papyrus", Font.BOLD, 20));
+            opponentLifepointsLabel.setForeground(Color.WHITE);
+
+            this.add(lifepointsLabel, layout.SOUTH);
+            this.add(currentPhaseLabel, layout.CENTER);
+            this.add(opponentLifepointsLabel, layout.NORTH);
         }
 
     public JLabel getCurrentPhasePanel() {

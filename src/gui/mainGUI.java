@@ -10,7 +10,7 @@ import java.awt.*;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
-public class GUITest {
+public class mainGUI {
     public static void main(String args[]){
 //        Game newGame = new Game();
 //        newGame.startNewGame();
@@ -22,7 +22,6 @@ public class GUITest {
         GUI gui = new GUI();
         gui.setGame(gui.getActivePlayer());
         gui.setGame(gui.getOpponentPlayer());
-
 
 //        JFrame newFrame = new JFrame();
 //        newFrame.setSize(1000,1000);
