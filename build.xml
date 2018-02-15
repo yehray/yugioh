@@ -1,0 +1,18 @@
+<project default="compile">
+    <target name="compile">
+        <javac srcdir="src"/>
+    </target>
+
+    <target name="run" depends="compile">
+
+        <java classname="gui.mainGUI" fork="true">
+        <classpath>
+            <path location="src" />
+        </classpath>
+        </java>
+
+    </target>
+
+
+
+</project>
