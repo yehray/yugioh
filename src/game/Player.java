@@ -92,7 +92,7 @@ public class Player {
         }
     }
 
-    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) {
+    public String attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) {
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
             if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
                 opponent.field.removeMonster(opponentMonsterCard);
@@ -112,16 +112,19 @@ public class Player {
             }
         }
         monsterCard.setHaveAttacked(true);
+        return "case";
     }
 
-    public void switchMonsterMode(MonsterCard monsterCard){
+    public boolean switchMonsterMode(MonsterCard monsterCard){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
             if (monsterCard.getMode() == "ATTACK") {
                 monsterCard.setMode("DEFENSE");
             } else {
                 monsterCard.setMode("ATTACK");
             }
+            return true;
         }
+        return false;
     }
 
     public void activateSpell(SpellCard spellCard, Card targetCard, Player targetPlayer){
@@ -147,10 +150,10 @@ public class Player {
 
     public void endPhase(String phase){
         if(phase == "MAIN PHASE 1"){
-            this.getField().phase = "BATTLE PHASE";
+            this.getField().setPhase("BATTLE PHASE");
         }
         else if(phase == "BATTLE PHASE"){
-            this.getField().phase = "MAIN PHASE 2";
+            this.getField().setPhase("MAIN PHASE 2");
         }
         else{
             endTurn();

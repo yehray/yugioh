@@ -28,7 +28,6 @@ public class AttackListener extends MouseAdapter{
         Player opponentPlayer = gui.getGame().getOpponent();
         game.getCurrentPlayer().getField().setPhase("BATTLE PHASE");
         game.getCurrentPlayer().attack(monster, opponentMonster, opponentPlayer);
-        System.out.println(gui.getGame().getOpponent().getLifepoints());
         gui.getInfoPanel().getOpponentLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(opponentPlayer.getLifepoints()));
         gui.getInfoPanel().repaint();
         gui.getInfoPanel().revalidate();

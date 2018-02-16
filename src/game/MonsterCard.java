@@ -68,6 +68,7 @@ public class MonsterCard extends Card {
         attack = atk;
         defence = dfc;
         switchedMode = true;
+        mode = "ATTACK";
         haveAttacked = false;
     }
 }

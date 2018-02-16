@@ -8,7 +8,7 @@ public class Field {
     private ArrayList<MonsterCard> monsterZone;
     private ArrayList<SpellCard> spellZone;
     private ArrayList<Card> graveyard;
-    public String phase;
+    private String phase;
 
     public String fieldSide() {
         return fieldSide;
@@ -28,6 +28,11 @@ public class Field {
 
     public String getPhase(){
         return phase;
+    }
+
+    public void setPhase(String p){
+        phase = p;
+
     }
 
     public Field(Player player){

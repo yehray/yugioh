@@ -234,19 +234,6 @@ public class GUI extends JFrame {
 
     }
 
-    public void changePhase(){
-        String currentPhase = game.getCurrentPlayer().getField().getPhase();
-        game.getCurrentPlayer().endPhase(currentPhase);
-        String newPhase = game.getCurrentPlayer().getField().getPhase();
-        String currentPlayer = game.getCurrentPlayer().getPlayerName();
-
-        infoPanel.getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br>" + newPhase + "</html>");
-
-        if(newPhase == "MAIN PHASE 2"){
-            this.getPhaseControlPanel().remove(0);
-        }
-    }
-
     public void endTurn(){
         game.getPlayer().endTurn();
         game.switchPlayer();

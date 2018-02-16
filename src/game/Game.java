@@ -19,6 +19,10 @@ public class Game {
         return player;
     }
 
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     public void setPlayer(Player newPlayer, int lifepoints){
         this.player = newPlayer;
         player.lifepoints = lifepoints;
@@ -80,8 +84,8 @@ public class Game {
     public void startNewGame(){
 
 
-        Player player = new Player("player", 8000);
-        Player opponent = new Player("opponent", 8000);
+        player  = new Player("PLAYER 1", 8000);
+        opponent = new Player("PLAYER 2", 8000);
 
         createDeck(player, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/YugiDeck.csv");
         createDeck(opponent, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/KaibaDeck.csv");
@@ -93,9 +97,11 @@ public class Game {
 
         int r = (int)(2*Math.random());
         if(r == 0){
+            currentPlayer = player;
             player.drawCard();
         }
         else{
+            currentPlayer = opponent;
             opponent.drawCard();
         }
     }
