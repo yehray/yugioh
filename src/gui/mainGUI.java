@@ -3,6 +3,9 @@ package gui;
 import game.Game;
 import game.MonsterCard;
 import game.Player;
+import gui.listeners.SelectAttackTargetListener;
+import gui.listeners.SelectFieldMonsterListener;
+import gui.listeners.ShowLargerImage;
 
 import javax.swing.*;
 
@@ -22,6 +25,19 @@ public class mainGUI {
         GUI gui = new GUI();
         gui.setGame(gui.getActivePlayer());
         gui.setGame(gui.getOpponentPlayer());
+
+
+        MonsterCard hitotsuMeGiant = new MonsterCard("Hitotsu-Me Giant", 3, 1200, 1000);
+        RotatedIcon r1 = new RotatedIcon(hitotsuMeGiant.getImageSmall(), RotatedIcon.Rotate.UPSIDE_DOWN);
+        HandButton addedCard = new HandButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);
+        JPanel monsterPanel = gui.getOpponentPlayer().getFieldPanel().getMonsterPanel();
+        MonsterButton monsterButton = new MonsterButton(addedCard.getCard().getImageSmall(), addedCard.getCard());
+        monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
+        monsterPanel.remove(0);
+        monsterPanel.add(monsterButton);
+        monsterButton.setIndex(0);
+        monsterPanel.revalidate();
+        monsterPanel.repaint();
 
 //        JFrame newFrame = new JFrame();
 //        newFrame.setSize(1000,1000);

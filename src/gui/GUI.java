@@ -21,7 +21,10 @@ public class GUI extends JFrame {
     private JLabel opponentLifePoints;
     private InfoPanel infoPanel;
     private PhaseControlPanel phaseControlPanel;
-//    private JPanel cardImagePanel;
+    private MonsterButton monsterSelected;
+    private MonsterButton monsterTarget;
+
+
 
 
 
@@ -75,8 +78,6 @@ public class GUI extends JFrame {
         MonsterCard beaverWarrior = new MonsterCard("Beaver Warrior", 8, 3000, 2500);
         MonsterCard giantSoldierOfStone = new MonsterCard("Giant Soldier of Stone", 8, 3000, 2500);
 
-
-
         addToHand(giantSoldierOfStone);
         addToHand(summonedSkull);
         addToHand(gaiaTheFierceKnight);
@@ -116,6 +117,22 @@ public class GUI extends JFrame {
 
     public PhaseControlPanel getPhaseControlPanel() {
         return phaseControlPanel;
+    }
+
+    public MonsterButton getMonsterSelected() {
+        return monsterSelected;
+    }
+
+    public MonsterButton getMonsterTarget() {
+        return monsterTarget;
+    }
+
+    public void setMonsterSelected(MonsterButton monsterSelected) {
+        this.monsterSelected = monsterSelected;
+    }
+
+    public void setMonsterTarget(MonsterButton monsterTarget) {
+        this.monsterTarget = monsterTarget;
     }
 
     public Game getGame() {
@@ -162,7 +179,6 @@ public class GUI extends JFrame {
         addedCard.addMouseListener(new PopUpListener(this.getActivePlayer().getHandPanel().getCurrentLayout()));
         this.getActivePlayer().getHandPanel().getHand().add(addedCard);
         this.getActivePlayer().getHandPanel().getHandButtons().add(addedCard);
-        this.getActivePlayer().getHandPanel().getHandButtons().add(addedCard);
         addedCard.setVisible(true);
         addedCard.validate();
     }
@@ -170,7 +186,7 @@ public class GUI extends JFrame {
     public MonsterButton summonMonster(HandButton monsterCardButton){
         JPanel monsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
         ArrayList<HandButton> handButtonsList = this.getActivePlayer().getHandPanel().getHandButtons();
-        MonsterButton monsterButton = new MonsterButton(monsterCardButton.getCard().getImageSmall());
+        MonsterButton monsterButton = new MonsterButton(monsterCardButton.getCard().getImageSmall(), monsterCardButton.getCard());
         monsterButton.addMouseListener( new ShowLargerImage(cardControlPanel, monsterCardButton.getCard()));
         monsterButton.addMouseListener(new SelectFieldMonsterListener(monsterButton, this));
 
