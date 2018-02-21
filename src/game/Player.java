@@ -65,11 +65,9 @@ public class Player {
 
     public void summonMonster(MonsterCard monsterCard, String mode){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
-            if (monsterCard.getLevel() < 4 && this.monsterSummoned == false) {
                 field.setMonster(monsterCard);
                 monsterCard.setMode(mode);
                 this.monsterSummoned = true;
-            }
         }
     }
 
@@ -92,8 +90,9 @@ public class Player {
         }
     }
 
-    public String attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) {
+    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) {
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
+            monsterCard.setHaveAttacked(true);
             if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
                 opponent.field.removeMonster(opponentMonsterCard);
                 opponent.field.addToGraveyard(opponentMonsterCard);
@@ -106,13 +105,12 @@ public class Player {
             }
         }
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "DEFENSE" && !monsterCard.getHaveAttacked()) {
+            monsterCard.setHaveAttacked(true);
             if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
                 opponent.field.removeMonster(opponentMonsterCard);
                 opponent.field.addToGraveyard(opponentMonsterCard);
             }
         }
-        monsterCard.setHaveAttacked(true);
-        return "case";
     }
 
     public boolean switchMonsterMode(MonsterCard monsterCard){

@@ -161,6 +161,7 @@ public class GUI extends JFrame {
 
     }
 
+
     //
 //        MonsterCard blueEyes = new MonsterCard("Blue Eyes White Dragon", 8, 3000, 2500);
 //        MonsterButton monsterButton = new MonsterButton(blueEyes.getImageSmall());
@@ -217,19 +218,19 @@ public class GUI extends JFrame {
 
 
     public void attack(MonsterCard monster, MonsterCard opponentMonster){
-        if("Case" == game.getPlayer().attack(monster, opponentMonster, game.getOpponent())){
-            JPanel activeMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
-            JPanel opponentMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
-            ArrayList<FieldCardButton> cardsOnField = this.getActivePlayer().getFieldPanel().getCardsOnField();
-            int index = 0;
-            for(int i = 0; i < cardsOnField.size(); i++){
-                if(cardsOnField.get(i).isHighlighted()){
-                    index = cardsOnField.get(i).getIndex();
-                }
-            }
-            opponentMonsterPanel.remove(index);
-
-        }
+//        if("Case" == game.getPlayer().attack(monster, opponentMonster, game.getOpponent())){
+//            JPanel activeMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
+//            JPanel opponentMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
+//            ArrayList<FieldCardButton> cardsOnField = this.getActivePlayer().getFieldPanel().getCardsOnField();
+//            int index = 0;
+//            for(int i = 0; i < cardsOnField.size(); i++){
+//                if(cardsOnField.get(i).isHighlighted()){
+//                    index = cardsOnField.get(i).getIndex();
+//                }
+//            }
+//            opponentMonsterPanel.remove(index);
+//
+//        }
 
 
     }

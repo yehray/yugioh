@@ -4,24 +4,24 @@ import game.MonsterCard;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class MonsterButton extends JButton {
+public class DefenseMonsterButton extends MonsterButton {
 
     private int index;
     private boolean highlighted;
     private MonsterCard monsterCard;
 
-    public MonsterButton(){
-
-    }
-
-    public MonsterButton(ImageIcon imageIcon, MonsterCard addedMonsterCard){
-        this.setIcon(imageIcon);
+    public DefenseMonsterButton(ImageIcon imageIcon, MonsterCard addedMonsterCard){
+        Image img = imageIcon.getImage() ;
+        Image newimg = img.getScaledInstance( 75, 100,  java.awt.Image.SCALE_SMOOTH ) ;
+        RotatedIcon rotated = new RotatedIcon(new ImageIcon( newimg ), RotatedIcon.Rotate.DOWN);
+        this.setIcon(rotated);
         monsterCard = addedMonsterCard;
         highlighted = false;
-        this.setPreferredSize(new Dimension(100,150));
+        setOpaque(false);
+        setContentAreaFilled(false);
+        setBorderPainted(false);
+
 
     }
 
@@ -44,4 +44,6 @@ public class MonsterButton extends JButton {
     public MonsterCard getMonsterCard() {
         return monsterCard;
     }
+
+
 }

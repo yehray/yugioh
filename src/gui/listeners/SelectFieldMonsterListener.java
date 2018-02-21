@@ -31,6 +31,7 @@ public class SelectFieldMonsterListener extends MouseAdapter{
         defenseModeButton.setBounds(275,150, 125,50);
 
         attackButton.addMouseListener(new StartAttackListener(gui, attackButton, defenseModeButton, fieldMonsterButton));
+        defenseModeButton.addMouseListener(new DefenseModeListener(gui));
 
         cardControlPanel.remove(1);
         cardControlPanel.add(attackButton);

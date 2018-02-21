@@ -28,14 +28,15 @@ public class mainGUI {
 
 
         MonsterCard hitotsuMeGiant = new MonsterCard("Hitotsu-Me Giant", 3, 1200, 1000);
-        RotatedIcon r1 = new RotatedIcon(hitotsuMeGiant.getImageSmall(), RotatedIcon.Rotate.UPSIDE_DOWN);
-        HandButton addedCard = new HandButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);
+        RotatedIcon r1 = new RotatedIcon(hitotsuMeGiant.getImageSmall(), RotatedIcon.Rotate.DOWN);
+        DefenseMonsterButton defense = new DefenseMonsterButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);
+//        HandButton addedCard = new HandButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);
         JPanel monsterPanel = gui.getOpponentPlayer().getFieldPanel().getMonsterPanel();
-        MonsterButton monsterButton = new MonsterButton(addedCard.getCard().getImageSmall(), addedCard.getCard());
-        monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
+//        MonsterButton monsterButton = new MonsterButton(addedCard.getCard().getImageSmall(), addedCard.getCard());
+//        monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
         monsterPanel.remove(0);
-        monsterPanel.add(monsterButton);
-        monsterButton.setIndex(0);
+        monsterPanel.add(defense, 0);
+//        monsterButton.setIndex(0);
         monsterPanel.revalidate();
         monsterPanel.repaint();
 
