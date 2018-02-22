@@ -190,6 +190,7 @@ public class GUI extends JFrame {
         MonsterButton monsterButton = new MonsterButton(monsterCardButton.getCard().getImageSmall(), monsterCardButton.getCard());
         monsterButton.addMouseListener( new ShowLargerImage(cardControlPanel, monsterCardButton.getCard()));
         monsterButton.addMouseListener(new SelectFieldMonsterListener(monsterButton, this));
+        setMonsterSelected(monsterButton);
 
 
         for(int i = 0; i < handButtonsList.size(); i++) {

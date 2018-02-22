@@ -18,10 +18,10 @@ public class DefenseMonsterButton extends MonsterButton {
         this.setIcon(rotated);
         monsterCard = addedMonsterCard;
         highlighted = false;
-        setOpaque(false);
-        setContentAreaFilled(false);
-        setBorderPainted(false);
-
+        this.setOpaque(false);
+        this.setContentAreaFilled(false);
+        this.setFocusPainted(false);
+        setBorder(BorderFactory.createEmptyBorder());
 
     }
 

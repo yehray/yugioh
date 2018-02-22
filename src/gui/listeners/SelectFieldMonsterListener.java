@@ -43,6 +43,7 @@ public class SelectFieldMonsterListener extends MouseAdapter{
 
     public void mouseClicked(MouseEvent e) {
         fieldSource = e.getSource();
+        gui.setMonsterSelected(fieldMonsterButton);
         if(this.isFirstClick){
             fieldMonsterButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
             cardControlPanel.add(attackButton);

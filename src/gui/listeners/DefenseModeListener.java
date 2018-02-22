@@ -25,20 +25,21 @@ public class DefenseModeListener extends MouseAdapter{
 
     public void mouseClicked(MouseEvent e) {
         MonsterCard monster = gui.getMonsterSelected().getMonsterCard();
+        monster.setMode("DEFENSE");
+        
         game.getCurrentPlayer().switchMonsterMode(monster);
         RotatedIcon r1 = new RotatedIcon(monster.getImageSmall(), RotatedIcon.Rotate.DOWN);
         DefenseMonsterButton defenseModeButton = new DefenseMonsterButton(monster.getImageSmall(), monster);
         defenseModeButton.addMouseListener( new ShowLargerImage(gui.getCardControlPanel(), defenseModeButton.getMonsterCard()));
         defenseModeButton.addMouseListener(new SelectFieldMonsterListener(defenseModeButton, gui));
+
         int index = gui.getMonsterSelected().getIndex();
-
-
-        JPanel monsterPanel = gui.getOpponentPlayer().getFieldPanel().getMonsterPanel();
+        JPanel monsterPanel = gui.getActivePlayer().getFieldPanel().getMonsterPanel();
         monsterPanel.remove(index);
         monsterPanel.add(defenseModeButton, index);
 
-        gui.getInfoPanel().repaint();
-        gui.getInfoPanel().revalidate();
+        defenseModeButton.repaint();
+        defenseModeButton.revalidate();
 
 
     }
