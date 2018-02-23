@@ -45,6 +45,10 @@ public class Game {
         this.winner = winner;
     }
 
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
     public void switchPlayer(){
         if(winner == null) {
             if (currentPlayer == player) {

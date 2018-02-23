@@ -138,6 +138,22 @@ public class GUI extends JFrame {
         this.monsterTarget = monsterTarget;
     }
 
+    public void setOpponent(PlayerPanel opponent) {
+        this.opponent = opponent;
+    }
+
+    public PlayerPanel getPlayer1() {
+        return player1;
+    }
+
+    public PlayerPanel getPlayer2() {
+        return player2;
+    }
+
+    public void setActivePlayer(PlayerPanel activePlayer) {
+        this.activePlayer = activePlayer;
+    }
+
     public Game getGame() {
         return game;
     }

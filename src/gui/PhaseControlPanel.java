@@ -2,6 +2,7 @@ package gui;
 
 import gui.listeners.AttackListener;
 import gui.listeners.EndTurnListener;
+import gui.listeners.OpponentStrategyListener;
 import gui.listeners.PhaseListener;
 
 import javax.swing.*;
@@ -24,6 +25,8 @@ public class PhaseControlPanel extends JPanel {
         endPhaseButton.addMouseListener(new PhaseListener(gui));
         JButton endTurnButton = new JButton("END TURN");
         endTurnButton.addMouseListener(new EndTurnListener(gui));
+        endTurnButton.addMouseListener(new OpponentStrategyListener(gui));
+
 
 
 

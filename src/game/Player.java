@@ -1,5 +1,7 @@
 package game;
 
+import gui.MonsterButton;
+
 public class Player {
 
     private String playerName;
@@ -141,9 +143,10 @@ public class Player {
 
     }
 
-    public void drawCard(){
-        Card card = deck.drawOneCard();
+    public MonsterCard drawCard(){
+        MonsterCard card = deck.drawOneCard();
         hand.addCardToHand(card);
+        return card;
     }
 
     public void endPhase(String phase){

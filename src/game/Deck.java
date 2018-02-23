@@ -28,7 +28,7 @@ public class Deck {
 //
 //    }
 
-    public Card drawOneCard(){
+    public MonsterCard drawOneCard(){
         return deck.remove(0);
     }
 }
