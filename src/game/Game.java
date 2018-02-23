@@ -68,10 +68,8 @@ public class Game {
                 lines.add(lineSplit);
             }
             for(int i = 0; i < lines.size(); i++){
-                for(int j = 0; j < lines.get(i).length; j++){
-                    MonsterCard monsterCard = new MonsterCard(lines.get(i)[0], Integer.parseInt(lines.get(i)[1]), Integer.parseInt(lines.get(i)[2]), Integer.parseInt(lines.get(i)[3]));
-                    player.getDeck().addCardToDeck(monsterCard);
-                }
+                MonsterCard monsterCard = new MonsterCard(lines.get(i)[0], Integer.parseInt(lines.get(i)[1]), Integer.parseInt(lines.get(i)[2]), Integer.parseInt(lines.get(i)[3]));
+                player.getDeck().addCardToDeck(monsterCard);
             }
 
         }
@@ -95,15 +93,17 @@ public class Game {
             opponent.drawCard();
         }
 
-        int r = (int)(2*Math.random());
-        if(r == 0){
-            currentPlayer = player;
-            player.drawCard();
-        }
-        else{
-            currentPlayer = opponent;
-            opponent.drawCard();
-        }
+        currentPlayer = player;
+
+//        int r = (int)(2*Math.random());
+//        if(r == 0){
+//            currentPlayer = player;
+//            player.drawCard();
+//        }
+//        else{
+//            currentPlayer = opponent;
+//            opponent.drawCard();
+//        }
     }
 
     public void endGame(){

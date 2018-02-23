@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    private ArrayList<Card> deck;
+    private ArrayList<MonsterCard> deck;
 
-    public ArrayList<Card> getDeck() {
+    public ArrayList<MonsterCard> getDeck() {
         return deck;
     }
 
     public Deck(){
-        deck = new ArrayList<Card>();
+        deck = new ArrayList<MonsterCard>();
     }
 
     public void shuffleDeck(){

@@ -27,7 +27,7 @@ public class SelectFieldMonsterListener extends MouseAdapter{
         attackButton = new JButton("ATTACK");
         attackButton.setBounds(275,40, 125,50);
 
-        defenseModeButton = new JButton("DEFENSE MODE");
+        defenseModeButton = new JButton("SWITCH MODE");
         defenseModeButton.setBounds(275,150, 125,50);
 
         attackButton.addMouseListener(new StartAttackListener(gui, attackButton, defenseModeButton, fieldMonsterButton));

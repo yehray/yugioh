@@ -29,10 +29,13 @@ public class GUI extends JFrame {
 
 
 
+
     public GUI(){
 
-        game = new Game();
+        Game newGame = new Game();
+        game = newGame;
         game.startNewGame();
+
 
         this.setTitle("Yu-Gi-Oh!");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

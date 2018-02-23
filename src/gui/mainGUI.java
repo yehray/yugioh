@@ -1,5 +1,6 @@
 package gui;
 
+import game.Card;
 import game.Game;
 import game.MonsterCard;
 import game.Player;
@@ -10,6 +11,7 @@ import gui.listeners.ShowLargerImage;
 import javax.swing.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -22,21 +24,29 @@ public class mainGUI {
 //        player.drawCard();
 //        MonsterCard monsterCard = (MonsterCard) player.getDeck().getDeck().get(0);
 //        System.out.println(monsterCard.getName());
+
+
+
         GUI gui = new GUI();
+
         gui.setGame(gui.getActivePlayer());
         gui.setGame(gui.getOpponentPlayer());
+
+//        ArrayList<MonsterCard> cardsInDeck = gui.getGame().getPlayer().getDeck().getDeck();
+//        System.out.println(cardsInDeck.size());
+//        for(int i = 0; i < cardsInDeck.size(); i++){
+//
+//            System.out.println(cardsInDeck.get(i).getName() + cardsInDeck.get(i).getAttack() + cardsInDeck.get(i).getDefence());
+//        }
+
 
 
         MonsterCard hitotsuMeGiant = new MonsterCard("Hitotsu-Me Giant", 3, 1200, 1000);
         RotatedIcon r1 = new RotatedIcon(hitotsuMeGiant.getImageSmall(), RotatedIcon.Rotate.DOWN);
         DefenseMonsterButton defense = new DefenseMonsterButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);
-//        HandButton addedCard = new HandButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);
         JPanel monsterPanel = gui.getOpponentPlayer().getFieldPanel().getMonsterPanel();
-//        MonsterButton monsterButton = new MonsterButton(addedCard.getCard().getImageSmall(), addedCard.getCard());
-//        monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
         monsterPanel.remove(0);
         monsterPanel.add(defense, 0);
-//        monsterButton.setIndex(0);
         monsterPanel.revalidate();
         monsterPanel.repaint();
 
