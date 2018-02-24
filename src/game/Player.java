@@ -1,6 +1,9 @@
 package game;
 
 import gui.MonsterButton;
+import gui.exceptions.WrongPhaseException;
+
+import javax.swing.*;
 
 public class Player {
 
@@ -92,7 +95,8 @@ public class Player {
         }
     }
 
-    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) {
+    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) throws WrongPhaseException{
+
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
             monsterCard.setHaveAttacked(true);
             if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
@@ -112,6 +116,10 @@ public class Player {
                 opponent.field.removeMonster(opponentMonsterCard);
                 opponent.field.addToGraveyard(opponentMonsterCard);
             }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
         }
     }
 

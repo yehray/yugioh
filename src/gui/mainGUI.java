@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class mainGUI {
-    public static void main(String args[]){
+    public static void main(String args[]) {
 //        Game newGame = new Game();
 //        newGame.startNewGame();
 //        Player player = new Player("player", 8000);
@@ -26,22 +26,10 @@ public class mainGUI {
 //        System.out.println(monsterCard.getName());
 
 
-
         GUI gui = new GUI();
-
         gui.setGame(gui.getActivePlayer());
         gui.setGame(gui.getOpponentPlayer());
         gui.drawStartingHand();
-
-//        ArrayList<MonsterCard> cardsInDeck = gui.getGame().getPlayer().getDeck().getDeck();
-//        System.out.println(cardsInDeck.size());
-//        for(int i = 0; i < cardsInDeck.size(); i++){
-//
-//            System.out.println(cardsInDeck.get(i).getName() + cardsInDeck.get(i).getAttack() + cardsInDeck.get(i).getDefence());
-//        }
-
-
-
         MonsterCard hitotsuMeGiant = new MonsterCard("Hitotsu-Me Giant", 3, 1200, 1000);
         RotatedIcon r1 = new RotatedIcon(hitotsuMeGiant.getImageSmall(), RotatedIcon.Rotate.DOWN);
         DefenseMonsterButton defense = new DefenseMonsterButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);

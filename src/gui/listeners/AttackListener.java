@@ -6,6 +6,7 @@ import game.Player;
 import gui.FieldCardButton;
 import gui.GUI;
 import gui.MonsterButton;
+import gui.exceptions.WrongPhaseException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +24,8 @@ public class AttackListener extends MouseAdapter{
     }
 
 
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e){
+
         MonsterCard monster = gui.getMonsterSelected().getMonsterCard();
         MonsterCard opponentMonster = gui.getMonsterTarget().getMonsterCard();
         Player opponentPlayer = gui.getGame().getOpponent();

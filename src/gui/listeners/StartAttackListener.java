@@ -4,6 +4,7 @@ package gui.listeners;
 
 import gui.GUI;
 import gui.MonsterButton;
+import gui.exceptions.WrongPhaseException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +39,11 @@ public class StartAttackListener extends MouseAdapter {
         executeAttackButton.addMouseListener(new AttackListener(gui));
     }
 
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e){
+        if(gui.getGame().getCurrentPlayer().getField().getPhase() != "BATTLE PHASE"){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+        }
         gui.setMonsterSelected(monsterButton);
         cardControlPanel.remove(attackButton);
         cardControlPanel.remove(defenseModeButton);

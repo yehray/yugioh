@@ -73,6 +73,7 @@ public class Game {
                 lines.add(lineSplit);
             }
             for(int i = 0; i < lines.size(); i++){
+                System.out.println(i);
                 MonsterCard monsterCard = new MonsterCard(lines.get(i)[0], Integer.parseInt(lines.get(i)[1]), Integer.parseInt(lines.get(i)[2]), Integer.parseInt(lines.get(i)[3]));
                 player.getDeck().addCardToDeck(monsterCard);
             }
