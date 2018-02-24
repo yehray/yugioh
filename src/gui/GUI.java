@@ -36,11 +36,10 @@ public class GUI extends JFrame {
         game = newGame;
         game.startNewGame();
 
-
         this.setTitle("Yu-Gi-Oh!");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        boardBackground = new JLabel(new ImageIcon((getClass().getResource("resources/yugiohFieldBackground.jpg"))));
+        boardBackground = new JLabel(new ImageIcon((getClass().getResource("resources/yugiohFieldBackgroundv2.jpg"))));
         setSize(1366,768);
 
         cardControlPanel = new JPanel();
@@ -72,21 +71,19 @@ public class GUI extends JFrame {
         this.add(cardControlPanel);
         this.add(boardBackground);
 
-
-
-        MonsterCard summonedSkull = new MonsterCard("Summoned Skull", 5, 2500, 1300);
-        MonsterCard blueEyes = new MonsterCard("Blue Eyes White Dragon", 8, 3000, 2500);
-        MonsterCard darkMagician = new MonsterCard("Dark Magician", 8, 3000, 2500);
-        MonsterCard gaiaTheFierceKnight = new MonsterCard("Gaia the Fierce Knight", 7, 2300, 2000);
-        MonsterCard beaverWarrior = new MonsterCard("Beaver Warrior", 8, 3000, 2500);
-        MonsterCard giantSoldierOfStone = new MonsterCard("Giant Soldier of Stone", 8, 3000, 2500);
-
-        addToHand(giantSoldierOfStone);
-        addToHand(summonedSkull);
-        addToHand(gaiaTheFierceKnight);
-        addToHand(beaverWarrior);
-        addToHand(darkMagician);
-        addToHand(blueEyes);
+//        MonsterCard summonedSkull = new MonsterCard("Summoned Skull", 5, 2500, 1300);
+//        MonsterCard blueEyes = new MonsterCard("Blue Eyes White Dragon", 8, 3000, 2500);
+//        MonsterCard darkMagician = new MonsterCard("Dark Magician", 8, 3000, 2500);
+//        MonsterCard gaiaTheFierceKnight = new MonsterCard("Gaia the Fierce Knight", 7, 2300, 2000);
+//        MonsterCard beaverWarrior = new MonsterCard("Beaver Warrior", 8, 3000, 2500);
+//        MonsterCard giantSoldierOfStone = new MonsterCard("Giant Soldier of Stone", 8, 3000, 2500);
+//
+//        addToHand(giantSoldierOfStone);
+//        addToHand(summonedSkull);
+//        addToHand(gaiaTheFierceKnight);
+//        addToHand(beaverWarrior);
+//        addToHand(darkMagician);
+//        addToHand(blueEyes);
 
 
         this.setVisible(true);
@@ -177,7 +174,17 @@ public class GUI extends JFrame {
             player.getFieldPanel().repaint();
         }
 
+    }
 
+
+    public void drawStartingHand(){
+        for(int i = 0; i < game.getPlayer().getHand().getCardsInHand().size(); i++){
+            addToHand(game.getPlayer().getHand().getCardsInHand().get(i));
+        }
+
+//        for(int i = 0; i < game.getOpponent().getHand().getCardsInHand().size(); i++){
+//            addToHand(game.getOpponent().getHand().getCardsInHand().get(i));
+//        }
     }
 
 

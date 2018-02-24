@@ -67,6 +67,7 @@ public class Game {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             ArrayList<String[]> lines = new ArrayList<>();
             String line = "";
+            String headerLine = reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] lineSplit = line.split(",");
                 lines.add(lineSplit);
@@ -91,6 +92,9 @@ public class Game {
 
         createDeck(player, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/YugiDeck.csv");
         createDeck(opponent, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/KaibaDeck.csv");
+
+        player.getDeck().shuffleDeck();
+        opponent.getDeck().shuffleDeck();
 
         for(int i = 0; i < 6; i ++){
             player.drawCard();

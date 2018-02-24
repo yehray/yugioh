@@ -31,6 +31,7 @@ public class mainGUI {
 
         gui.setGame(gui.getActivePlayer());
         gui.setGame(gui.getOpponentPlayer());
+        gui.drawStartingHand();
 
 //        ArrayList<MonsterCard> cardsInDeck = gui.getGame().getPlayer().getDeck().getDeck();
 //        System.out.println(cardsInDeck.size());

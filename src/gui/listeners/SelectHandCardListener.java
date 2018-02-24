@@ -18,8 +18,8 @@ public class SelectHandCardListener extends MouseAdapter{
     private boolean highlight;
     private GUI gui;
 
-    public SelectHandCardListener(HandButton addedButton, GUI g){
-        gui = g;
+    public SelectHandCardListener(HandButton addedButton, GUI addedGUI){
+        gui = addedGUI;
         handbutton = addedButton;
         highlight = false;
         handButtonsList = gui.getActivePlayer().getHandPanel().getHandButtons();
@@ -38,8 +38,6 @@ public class SelectHandCardListener extends MouseAdapter{
                 handButtonsList.get(i).setBorder(BorderFactory.createEmptyBorder());
 //                handButtonsList.get(i).setClicked(false);
             }
-
-
             handbutton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
             handbutton.setClicked(true);
             cardControlPanel.add(summonButton);

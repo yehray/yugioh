@@ -27,14 +27,8 @@ public class PhaseControlPanel extends JPanel {
         endTurnButton.addMouseListener(new EndTurnListener(gui));
         endTurnButton.addMouseListener(new OpponentStrategyListener(gui));
 
-
-
-
         this.add(endPhaseButton);
         this.add(endTurnButton);
-
-
-
 
     }
 }

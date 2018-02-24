@@ -3,10 +3,10 @@ package game;
 import java.util.ArrayList;
 
 public class Hand {
-    private ArrayList<Card> cardsInHand;
+    private ArrayList<MonsterCard> cardsInHand;
     private String playersHand;
 
-    public ArrayList<Card> getCardsInHand() {
+    public ArrayList<MonsterCard> getCardsInHand() {
         return cardsInHand;
     }
 
@@ -15,11 +15,11 @@ public class Hand {
     }
 
     public Hand(Player player){
-        cardsInHand = new ArrayList<Card>();
+        cardsInHand = new ArrayList<MonsterCard>();
         playersHand = player.getPlayerName();
     }
 
-    public void addCardToHand(Card card){
+    public void addCardToHand(MonsterCard card){
         if(cardsInHand.size() < 7){
             cardsInHand.add(card);
         }
