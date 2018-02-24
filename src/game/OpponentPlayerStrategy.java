@@ -17,6 +17,6 @@ public class OpponentPlayerStrategy {
         MonsterCard drawnCard = game.getCurrentPlayer().drawCard();
         gui.setActivePlayer(gui.getPlayer1());
         gui.setOpponent(gui.getPlayer2());
-        gui.addToHand(drawnCard);
+        gui.addToHand(drawnCard, gui.getActivePlayer());
     }
 }

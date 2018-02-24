@@ -35,8 +35,6 @@ public class HandPanel extends JPanel{
         this.setLayout(new FlowLayout());
         this.add(hand);
         this.setOpaque(false);
-
-
     }
 
 

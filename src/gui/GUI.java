@@ -53,7 +53,7 @@ public class GUI extends JFrame {
         activePlayer = player1;
 
         player2 = new PlayerPanel(this, "opponent");
-        player2.setBounds(0,5,1366,400);
+        player2.setBounds(0,0,1366,400);
 
         opponentPlayer = player2;
 
@@ -179,33 +179,25 @@ public class GUI extends JFrame {
 
     public void drawStartingHand(){
         for(int i = 0; i < game.getPlayer().getHand().getCardsInHand().size(); i++){
-            addToHand(game.getPlayer().getHand().getCardsInHand().get(i));
+            addToHand(game.getPlayer().getHand().getCardsInHand().get(i), getActivePlayer());
         }
 
-//        for(int i = 0; i < game.getOpponent().getHand().getCardsInHand().size(); i++){
-//            addToHand(game.getOpponent().getHand().getCardsInHand().get(i));
-//        }
+        for(int i = 0; i < game.getOpponent().getHand().getCardsInHand().size(); i++){
+            MonsterCard monsterCard = game.getOpponent().getHand().getCardsInHand().get(i);
+            ImageIcon cardBackground = new ImageIcon(this.getClass().getResource("resources/yugiohCardBackground.jpg"));
+            HandButton addedCard = new HandButton(cardBackground, monsterCard);
+            getOpponentPlayer().getHandPanel().getHand().add(addedCard);
+        }
     }
 
 
-    //
-//        MonsterCard blueEyes = new MonsterCard("Blue Eyes White Dragon", 8, 3000, 2500);
-//        MonsterButton monsterButton = new MonsterButton(blueEyes.getImageSmall());
-//
-//        int index = getComponentZOrder(buttons[0]);
-//        monsterPanel.remove(buttons[2]);
-//        monsterPanel.add(new JLabel("I was here"), 3);
-
-
-
-
-    public void addToHand(MonsterCard card){
+    public void addToHand(MonsterCard card, PlayerPanel player){
         HandButton addedCard = new HandButton(card.getImageSmall(), card);
         addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
         addedCard.addMouseListener(new SelectHandCardListener(addedCard, this));
         addedCard.addMouseListener(new PopUpListener(this.getActivePlayer().getHandPanel().getCurrentLayout()));
-        this.getActivePlayer().getHandPanel().getHand().add(addedCard);
-        this.getActivePlayer().getHandPanel().getHandButtons().add(addedCard);
+        player.getHandPanel().getHand().add(addedCard);
+        player.getHandPanel().getHandButtons().add(addedCard);
         addedCard.setVisible(true);
         addedCard.validate();
     }

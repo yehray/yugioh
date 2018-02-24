@@ -32,8 +32,6 @@ public class FieldPanel extends JPanel{
         spellPanel = new JPanel();
         monsterPanel = new JPanel();
 
-
-
         if(player == "opponent") {
             monsterPanel.setBounds(160, 180, 680, 150);
             spellPanel.setBounds(160, 10, 680, 150);
@@ -43,7 +41,6 @@ public class FieldPanel extends JPanel{
             spellPanel.setBounds(160, 180, 680, 150);
         }
 
-
         monsterPanel.setLayout(monsterZoneLayout);
         monsterZoneLayout.setHgap(40);
         monsterPanel.setOpaque(false);
@@ -51,7 +48,6 @@ public class FieldPanel extends JPanel{
         spellPanel.setLayout(spellZoneLayout);
         spellZoneLayout.setHgap(40);
         spellPanel.setOpaque(false);
-
 
         this.add(monsterPanel);
         this.add(spellPanel);
