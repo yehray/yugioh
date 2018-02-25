@@ -1,9 +1,6 @@
 package gui;
 
-import game.Card;
-import game.Game;
-import game.MonsterCard;
-import game.Player;
+import game.*;
 import gui.listeners.SelectAttackTargetListener;
 import gui.listeners.SelectFieldMonsterListener;
 import gui.listeners.ShowLargerImage;
@@ -27,17 +24,15 @@ public class mainGUI {
 
 
         GUI gui = new GUI();
+        gui.setPlayers();
+        gui.setPanels();
         gui.setGame(gui.getActivePlayer());
         gui.setGame(gui.getOpponentPlayer());
         gui.drawStartingHand();
-        MonsterCard hitotsuMeGiant = new MonsterCard("Hitotsu-Me Giant", 3, 1200, 1000);
-        RotatedIcon r1 = new RotatedIcon(hitotsuMeGiant.getImageSmall(), RotatedIcon.Rotate.DOWN);
-        DefenseMonsterButton defense = new DefenseMonsterButton(hitotsuMeGiant.getImageSmall(), hitotsuMeGiant);
-        JPanel monsterPanel = gui.getOpponentPlayer().getFieldPanel().getMonsterPanel();
-        monsterPanel.remove(0);
-        monsterPanel.add(defense, 0);
-        monsterPanel.revalidate();
-        monsterPanel.repaint();
+
+        OpponentPlayerStrategy opponentPlayerStrategy = new OpponentPlayerStrategy(gui.getGame(), gui);
+        gui.setOpponentPlayerStrategy();
+
 
 //        JFrame newFrame = new JFrame();
 //        newFrame.setSize(1000,1000);

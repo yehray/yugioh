@@ -1,6 +1,6 @@
 <project default="compile">
     <target name="compile">
-        <javac srcdir="src"/>
+        <javac srcdir="src" debug="true"/>
     </target>
 
     <target name="run" depends="compile">

@@ -1,5 +1,6 @@
 package gui;
 
+import game.OpponentPlayerStrategy;
 import gui.listeners.AttackListener;
 import gui.listeners.EndTurnListener;
 import gui.listeners.OpponentStrategyListener;
@@ -11,6 +12,8 @@ import java.awt.*;
 public class PhaseControlPanel extends JPanel {
 
     private GUI gui;
+    private JButton endTurnButton;
+    private OpponentStrategyListener strategyListener;
 
     public PhaseControlPanel(GUI addedGUI){
         gui = addedGUI;
@@ -23,12 +26,17 @@ public class PhaseControlPanel extends JPanel {
 
         JButton endPhaseButton = new JButton("END PHASE");
         endPhaseButton.addMouseListener(new PhaseListener(gui));
-        JButton endTurnButton = new JButton("END TURN");
+        endTurnButton = new JButton("END TURN");
         endTurnButton.addMouseListener(new EndTurnListener(gui));
-        endTurnButton.addMouseListener(new OpponentStrategyListener(gui));
 
         this.add(endPhaseButton);
         this.add(endTurnButton);
 
     }
+
+    public void addStrategy(){
+        strategyListener = new OpponentStrategyListener(gui);
+        endTurnButton.addMouseListener(strategyListener);
+    }
+
 }

@@ -1,5 +1,6 @@
 package gui.listeners;
 
+import game.MonsterCard;
 import game.OpponentPlayerStrategy;
 import gui.GUI;
 
@@ -8,13 +9,15 @@ import java.awt.event.MouseEvent;
 
 public class OpponentStrategyListener extends MouseAdapter{
     private GUI gui;
+    private OpponentPlayerStrategy opponentPlayerStrategy;
     public OpponentStrategyListener(GUI addedGUI){
         gui = addedGUI;
-
+        opponentPlayerStrategy = gui.getOpponentPlayerStrategy();
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println("This");
-        OpponentPlayerStrategy opponentPlayerStrategy = new OpponentPlayerStrategy(gui.getGame(), gui);
+        opponentPlayerStrategy.drawCard();
+        opponentPlayerStrategy.summonMonster();
+
     }
 }

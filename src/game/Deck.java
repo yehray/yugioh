@@ -29,6 +29,8 @@ public class Deck {
 //    }
 
     public MonsterCard drawOneCard(){
-        return deck.remove(0);
+        MonsterCard card = deck.get(0);
+        deck.remove(0);
+        return card;
     }
 }

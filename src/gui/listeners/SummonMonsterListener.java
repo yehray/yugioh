@@ -23,7 +23,7 @@ public class SummonMonsterListener extends MouseAdapter {
 
     public void mouseClicked(MouseEvent e) {
         if(handButton.isClicked()) {
-            gui.summonMonster(handButton);
+            gui.summonMonster(handButton, gui.getActivePlayer());
             fieldPanel.revalidate();
             fieldPanel.repaint();
         }

@@ -1,6 +1,7 @@
 package gui;
 import game.Game;
 import game.MonsterCard;
+import game.OpponentPlayerStrategy;
 import gui.listeners.*;
 
 import javax.swing.*;
@@ -23,11 +24,7 @@ public class GUI extends JFrame {
     private PhaseControlPanel phaseControlPanel;
     private MonsterButton monsterSelected;
     private MonsterButton monsterTarget;
-
-
-
-
-
+    private OpponentPlayerStrategy opponentPlayerStrategy;
 
 
     public GUI(){
@@ -39,37 +36,37 @@ public class GUI extends JFrame {
         this.setTitle("Yu-Gi-Oh!");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        boardBackground = new JLabel(new ImageIcon((getClass().getResource("resources/yugiohFieldBackgroundv2.jpg"))));
-        setSize(1366,768);
-
-        cardControlPanel = new JPanel();
-        cardControlPanel.setLayout(null);
-        cardControlPanel.setBounds(890,188,425,375);
-        cardControlPanel.setOpaque(false);
-
-        player1 = new PlayerPanel(this, "player");
-        player1.setBounds(0,400,1366,400);
-
-        activePlayer = player1;
-
-        player2 = new PlayerPanel(this, "opponent");
-        player2.setBounds(0,0,1366,400);
-
-        opponentPlayer = player2;
-
-        phaseControlPanel = new PhaseControlPanel(this);
-        phaseControlPanel.setBounds(1180,620,140,105);
-
-        InfoPanel infoPnl = new InfoPanel(this);
-        infoPnl.setBounds(1165, 155, 200, 425);
-        infoPanel = infoPnl;
-
-        this.add(infoPnl);
-        this.add(phaseControlPanel);
-        this.add(activePlayer);
-        this.add(opponentPlayer);
-        this.add(cardControlPanel);
-        this.add(boardBackground);
+//        boardBackground = new JLabel(new ImageIcon((getClass().getResource("resources/yugiohFieldBackgroundv2.jpg"))));
+//        setSize(1366,768);
+//
+//        cardControlPanel = new JPanel();
+//        cardControlPanel.setLayout(null);
+//        cardControlPanel.setBounds(890,188,425,375);
+//        cardControlPanel.setOpaque(false);
+//
+//        player1 = new PlayerPanel(this, "player");
+//        player1.setBounds(0,400,1366,400);
+//
+//        activePlayer = player1;
+//
+//        player2 = new PlayerPanel(this, "opponent");
+//        player2.setBounds(0,0,1366,400);
+//
+//        opponentPlayer = player2;
+//
+//        phaseControlPanel = new PhaseControlPanel(this);
+//        phaseControlPanel.setBounds(1180,620,140,105);
+//
+//        InfoPanel infoPnl = new InfoPanel(this);
+//        infoPnl.setBounds(1165, 155, 200, 425);
+//        infoPanel = infoPnl;
+//
+//        this.add(infoPnl);
+//        this.add(phaseControlPanel);
+//        this.add(activePlayer);
+//        this.add(opponentPlayer);
+//        this.add(cardControlPanel);
+//        this.add(boardBackground);
 
 //        MonsterCard summonedSkull = new MonsterCard("Summoned Skull", 5, 2500, 1300);
 //        MonsterCard blueEyes = new MonsterCard("Blue Eyes White Dragon", 8, 3000, 2500);
@@ -155,6 +152,53 @@ public class GUI extends JFrame {
         return game;
     }
 
+    public void setOpponentPlayerStrategy() {
+        this.opponentPlayerStrategy = new OpponentPlayerStrategy(game, this);
+        this.getPhaseControlPanel().addStrategy();
+
+    }
+
+    public OpponentPlayerStrategy getOpponentPlayerStrategy() {
+        return opponentPlayerStrategy;
+    }
+
+    public void setPlayers(){
+        player1 = new PlayerPanel(this, "player");
+        player1.setBounds(0,400,1366,400);
+
+        activePlayer = player1;
+
+        player2 = new PlayerPanel(this, "opponent");
+        player2.setBounds(0,0,1366,400);
+
+        opponentPlayer = player2;
+
+        this.add(activePlayer);
+        this.add(opponentPlayer);
+    }
+
+    public void setPanels(){
+        boardBackground = new JLabel(new ImageIcon((getClass().getResource("resources/yugiohFieldBackgroundv2.jpg"))));
+        setSize(1366,768);
+
+        cardControlPanel = new JPanel();
+        cardControlPanel.setLayout(null);
+        cardControlPanel.setBounds(890,188,425,375);
+        cardControlPanel.setOpaque(false);
+
+        phaseControlPanel = new PhaseControlPanel(this);
+        phaseControlPanel.setBounds(1180,620,140,105);
+
+        InfoPanel infoPnl = new InfoPanel(this);
+        infoPnl.setBounds(1165, 155, 200, 425);
+        infoPanel = infoPnl;
+
+        this.add(infoPnl);
+        this.add(phaseControlPanel);
+        this.add(cardControlPanel);
+        this.add(boardBackground);
+    }
+
     public void setGame(PlayerPanel player){
         ImageIcon monsterCardZone = new ImageIcon(this.getClass().getResource("resources/monsterCardZone.jpg"));
         ImageIcon spellCardZone = new ImageIcon(this.getClass().getResource("resources/spellCardZone.jpg"));
@@ -187,7 +231,11 @@ public class GUI extends JFrame {
             ImageIcon cardBackground = new ImageIcon(this.getClass().getResource("resources/yugiohCardBackground.jpg"));
             HandButton addedCard = new HandButton(cardBackground, monsterCard);
             getOpponentPlayer().getHandPanel().getHand().add(addedCard);
+            getOpponentPlayer().getHandPanel().getHandButtons().add(addedCard);
         }
+        revalidate();
+        repaint();
+
     }
 
 
@@ -198,13 +246,14 @@ public class GUI extends JFrame {
         addedCard.addMouseListener(new PopUpListener(this.getActivePlayer().getHandPanel().getCurrentLayout()));
         player.getHandPanel().getHand().add(addedCard);
         player.getHandPanel().getHandButtons().add(addedCard);
+        player.getHandPanel().getHandButtons().add(addedCard);
         addedCard.setVisible(true);
         addedCard.validate();
     }
 
-    public MonsterButton summonMonster(HandButton monsterCardButton){
-        JPanel monsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
-        ArrayList<HandButton> handButtonsList = this.getActivePlayer().getHandPanel().getHandButtons();
+    public MonsterButton summonMonster(HandButton monsterCardButton, PlayerPanel playerPanel){
+        JPanel monsterPanel = playerPanel.getFieldPanel().getMonsterPanel();
+        ArrayList<HandButton> handButtonsList = playerPanel.getHandPanel().getHandButtons();
         MonsterButton monsterButton = new MonsterButton(monsterCardButton.getCard().getImageSmall(), monsterCardButton.getCard());
         monsterButton.addMouseListener( new ShowLargerImage(cardControlPanel, monsterCardButton.getCard()));
         monsterButton.addMouseListener(new SelectFieldMonsterListener(monsterButton, this));
@@ -213,11 +262,11 @@ public class GUI extends JFrame {
 
         for(int i = 0; i < handButtonsList.size(); i++) {
             if(handButtonsList.get(i) == monsterCardButton.getCardSource()){
-                this.getActivePlayer().getHandPanel().getHand().remove(handButtonsList.get(i));
+                playerPanel.getHandPanel().getHand().remove(handButtonsList.get(i));
             }
         }
 
-        ArrayList<FieldCardButton> cardsOnField = this.getActivePlayer().getFieldPanel().getCardsOnField();
+        ArrayList<FieldCardButton> cardsOnField = playerPanel.getFieldPanel().getCardsOnField();
         int index = 0;
         for(int i = 0; i < cardsOnField.size(); i++){
             if(cardsOnField.get(i).isHighlighted()){
@@ -228,6 +277,7 @@ public class GUI extends JFrame {
 
         monsterPanel.remove(index);
         monsterPanel.add(monsterButton, index);
+        playerPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton.getMonsterCard());
         monsterButton.setIndex(index);
         monsterPanel.revalidate();
         monsterPanel.repaint();

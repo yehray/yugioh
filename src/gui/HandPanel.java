@@ -46,8 +46,6 @@ public class HandPanel extends JPanel{
         return hand;
     }
 
-
-
     public ArrayList<HandButton> getHandButtons() {
         return handButtons;
     }

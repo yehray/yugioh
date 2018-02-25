@@ -53,10 +53,8 @@ public class Game {
         if(winner == null) {
             if (currentPlayer == player) {
                 currentPlayer = opponent;
-                opponent.drawCard();
             } else {
                 currentPlayer = player;
-                player.drawCard();
             }
         }
     }
@@ -73,7 +71,6 @@ public class Game {
                 lines.add(lineSplit);
             }
             for(int i = 0; i < lines.size(); i++){
-                System.out.println(i);
                 MonsterCard monsterCard = new MonsterCard(lines.get(i)[0], Integer.parseInt(lines.get(i)[1]), Integer.parseInt(lines.get(i)[2]), Integer.parseInt(lines.get(i)[3]));
                 player.getDeck().addCardToDeck(monsterCard);
             }
@@ -97,7 +94,7 @@ public class Game {
         player.getDeck().shuffleDeck();
         opponent.getDeck().shuffleDeck();
 
-        for(int i = 0; i < 6; i ++){
+        for(int i = 0; i < 5; i ++){
             player.drawCard();
             opponent.drawCard();
         }
