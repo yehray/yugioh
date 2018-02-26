@@ -10,6 +10,7 @@ public class HandButton extends JButton {
     private MonsterCard card;
     private boolean isClicked;
     private Object cardSource;
+    private int index;
 
     public HandButton(ImageIcon imageIcon, MonsterCard c){
         isClicked = false;
@@ -37,5 +38,13 @@ public class HandButton extends JButton {
 
     public Object getCardSource() {
         return cardSource;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

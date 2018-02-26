@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class mainGUI {
-    public static void main(String args[]) {
+    public static void main(String args[]){
 //        Game newGame = new Game();
 //        newGame.startNewGame();
 //        Player player = new Player("player", 8000);
@@ -21,7 +21,6 @@ public class mainGUI {
 //        player.drawCard();
 //        MonsterCard monsterCard = (MonsterCard) player.getDeck().getDeck().get(0);
 //        System.out.println(monsterCard.getName());
-
 
         GUI gui = new GUI();
         gui.setPlayers();
@@ -32,7 +31,6 @@ public class mainGUI {
 
         OpponentPlayerStrategy opponentPlayerStrategy = new OpponentPlayerStrategy(gui.getGame(), gui);
         gui.setOpponentPlayerStrategy();
-
 
 //        JFrame newFrame = new JFrame();
 //        newFrame.setSize(1000,1000);

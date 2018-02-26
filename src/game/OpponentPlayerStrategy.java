@@ -1,6 +1,7 @@
 package game;
 
 import gui.*;
+import gui.listeners.SelectAttackTargetListener;
 import gui.listeners.SelectFieldMonsterListener;
 import gui.listeners.ShowLargerImage;
 
@@ -31,16 +32,18 @@ public class OpponentPlayerStrategy {
     public void summonMonster(){
         HandButton strongest = selectStrongest();
         MonsterButton monsterButton = new MonsterButton(strongest.getCard().getImageSmall(), strongest.getCard());
-        
+        monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
+
         for(int i = 0; i < opponentPanel.getHandPanel().getHandButtons().size(); i++) {
             HandButton currentButton = opponentPanel.getHandPanel().getHandButtons().get(i);
             if(currentButton == strongest){
-                opponentPanel.getHandPanel().getHand().remove(currentButton);
+                opponentPanel.getHandPanel().getHandButtons().remove(currentButton);
             }
         }
 
         if(opponentPanel.getFieldPanel().getEmptySpotsOnField().size() != 0){
             int index = opponentPanel.getFieldPanel().getEmptySpotsOnField().get(0).getIndex();
+            opponentPanel.getFieldPanel().getEmptySpotsOnField().remove(0);
             opponentPanel.getFieldPanel().getMonsterPanel().remove(index);
             opponentPanel.getFieldPanel().getMonsterPanel().add(monsterButton, index);
             opponentPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton.getMonsterCard());

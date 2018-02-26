@@ -117,10 +117,10 @@ public class Player {
                 opponent.field.addToGraveyard(opponentMonsterCard);
             }
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
-            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
-        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+//            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+//        }
     }
 
     public boolean switchMonsterMode(MonsterCard monsterCard){

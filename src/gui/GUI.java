@@ -243,7 +243,7 @@ public class GUI extends JFrame {
         HandButton addedCard = new HandButton(card.getImageSmall(), card);
         addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
         addedCard.addMouseListener(new SelectHandCardListener(addedCard, this));
-        addedCard.addMouseListener(new PopUpListener(this.getActivePlayer().getHandPanel().getCurrentLayout()));
+        addedCard.addMouseListener(new PopUpListener(player.getHandPanel().getCurrentLayout()));
         player.getHandPanel().getHand().add(addedCard);
         player.getHandPanel().getHandButtons().add(addedCard);
         player.getHandPanel().getHandButtons().add(addedCard);
