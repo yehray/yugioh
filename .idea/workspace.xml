@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="210ec2d8-278d-4971-a68d-d0e6728b2b29" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/game/OpponentPlayerStrategy.class" afterPath="$PROJECT_DIR$/out/production/yugioh/game/OpponentPlayerStrategy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/GUI.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/GUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/HandButton.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/HandButton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/StartAttackListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/StartAttackListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/mainGUI.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/mainGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.class" afterPath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GUI.class" afterPath="$PROJECT_DIR$/src/gui/GUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/HandButton.class" afterPath="$PROJECT_DIR$/src/gui/HandButton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.class" afterPath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/mainGUI.class" afterPath="$PROJECT_DIR$/src/gui/mainGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java" afterPath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Player.java" afterPath="$PROJECT_DIR$/src/game/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GUI.java" afterPath="$PROJECT_DIR$/src/gui/GUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/HandButton.java" afterPath="$PROJECT_DIR$/src/gui/HandButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java" afterPath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/mainGUI.java" afterPath="$PROJECT_DIR$/src/gui/mainGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/cards/KaibaDeck.csv" afterPath="$PROJECT_DIR$/src/game/cards/KaibaDeck.csv" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/maven/target/" />
@@ -51,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="735">
-              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,16 +118,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpponentStrategyListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -164,8 +138,8 @@
       <find>syst</find>
       <find>strate</find>
       <find>tar</find>
-      <find>active</find>
       <find>t</find>
+      <find>active</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -218,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/game/cards/YugiDeck.csv" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
         <option value="$PROJECT_DIR$/src/game/Deck.java" />
-        <option value="$PROJECT_DIR$/src/game/cards/KaibaDeck.csv" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/gui/PhaseControlPanel.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.java" />
@@ -230,12 +203,13 @@
         <option value="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java" />
         <option value="$PROJECT_DIR$/src/game/Player.java" />
+        <option value="$PROJECT_DIR$/src/game/cards/KaibaDeck.csv" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="18" />
-    <option name="y" value="149" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="43" />
+    <option name="y" value="124" />
     <option name="width" value="1138" />
     <option name="height" value="427" />
   </component>
@@ -447,7 +421,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="43" y="124" width="1138" height="427" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -462,7 +436,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1996337" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29835767" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0036630037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -752,14 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/cards/KaibaDeck.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/cards/YugiDeck.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -925,7 +891,15 @@
     <entry file="file://$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/cards/KaibaDeck.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
           <folding />
         </state>
       </provider>
