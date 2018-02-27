@@ -61,7 +61,6 @@ public class Game {
 
     public void createDeck(Player player, String fileName){
         try {
-
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             ArrayList<String[]> lines = new ArrayList<>();
             String line = "";
@@ -74,7 +73,6 @@ public class Game {
                 MonsterCard monsterCard = new MonsterCard(lines.get(i)[0], Integer.parseInt(lines.get(i)[1]), Integer.parseInt(lines.get(i)[2]), Integer.parseInt(lines.get(i)[3]));
                 player.getDeck().addCardToDeck(monsterCard);
             }
-
         }
 
         catch(IOException e) {

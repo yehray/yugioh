@@ -18,6 +18,7 @@ public class OpponentStrategyListener extends MouseAdapter{
     public void mouseClicked(MouseEvent e) {
         opponentPlayerStrategy.drawCard();
         opponentPlayerStrategy.summonMonster();
+        opponentPlayerStrategy.endTurn();
 
     }
 }

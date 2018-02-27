@@ -169,7 +169,6 @@ public class Player {
         }
     }
 
-
     public void endTurn(){
         this.monsterSummoned = false;
         for(int i = 0; i < this.field.getMonsters().size(); i++){

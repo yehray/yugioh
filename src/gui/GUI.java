@@ -238,7 +238,6 @@ public class GUI extends JFrame {
 
     }
 
-
     public void addToHand(MonsterCard card, PlayerPanel player){
         HandButton addedCard = new HandButton(card.getImageSmall(), card);
         addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
@@ -273,8 +272,6 @@ public class GUI extends JFrame {
                 index = cardsOnField.get(i).getIndex();
             }
         }
-
-
         monsterPanel.remove(index);
         monsterPanel.add(monsterButton, index);
         playerPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton.getMonsterCard());
@@ -284,48 +281,15 @@ public class GUI extends JFrame {
         return monsterButton;
     }
 
-
-
-    public void attack(MonsterCard monster, MonsterCard opponentMonster){
-//        if("Case" == game.getPlayer().attack(monster, opponentMonster, game.getOpponent())){
-//            JPanel activeMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
-//            JPanel opponentMonsterPanel = this.getActivePlayer().getFieldPanel().getMonsterPanel();
-//            ArrayList<FieldCardButton> cardsOnField = this.getActivePlayer().getFieldPanel().getCardsOnField();
-//            int index = 0;
-//            for(int i = 0; i < cardsOnField.size(); i++){
-//                if(cardsOnField.get(i).isHighlighted()){
-//                    index = cardsOnField.get(i).getIndex();
-//                }
-//            }
-//            opponentMonsterPanel.remove(index);
-//
-//        }
-
-
-    }
-
     public void endTurn(){
         game.getPlayer().endTurn();
         game.switchPlayer();
         String currentPlayer = game.getCurrentPlayer().getPlayerName();
         infoPanel.getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br> MAIN PHASE 1 </html>");
-        if(activePlayer == player1){
-            activePlayer = player2;
-            opponentPlayer = player1;
-        }
-        else{
-            activePlayer = player2;
-            opponentPlayer = player1;
-        }
         phaseControlPanel = new PhaseControlPanel(this);
         phaseControlPanel.setBounds(1180,620,140,105);
         this.add(phaseControlPanel);
-
-
     }
-
-
-
 
 
 }

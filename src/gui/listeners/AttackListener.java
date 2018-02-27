@@ -25,11 +25,10 @@ public class AttackListener extends MouseAdapter{
 
 
     public void mouseClicked(MouseEvent e){
-
         MonsterCard monster = gui.getMonsterSelected().getMonsterCard();
         MonsterCard opponentMonster = gui.getMonsterTarget().getMonsterCard();
         Player opponentPlayer = gui.getGame().getOpponent();
-        game.getCurrentPlayer().attack(monster, opponentMonster, opponentPlayer);
+        game.getPlayer().attack(monster, opponentMonster, opponentPlayer);
         gui.getInfoPanel().getOpponentLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(opponentPlayer.getLifepoints()));
         if(opponentMonster.getAttack() < monster.getAttack()){
             int index = gui.getMonsterTarget().getIndex();
@@ -43,7 +42,5 @@ public class AttackListener extends MouseAdapter{
         }
         gui.getInfoPanel().repaint();
         gui.getInfoPanel().revalidate();
-
-
     }
 }

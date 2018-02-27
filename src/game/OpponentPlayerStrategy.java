@@ -6,6 +6,7 @@ import gui.listeners.SelectFieldMonsterListener;
 import gui.listeners.ShowLargerImage;
 
 import javax.swing.*;
+import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -30,6 +31,14 @@ public class OpponentPlayerStrategy {
     }
 
     public void summonMonster(){
+//        try
+//        {
+//            Thread.sleep(2000);
+//        }
+//        catch(InterruptedException ex)
+//        {
+//            Thread.currentThread().interrupt();
+//        }
         HandButton strongest = selectStrongest();
         MonsterButton monsterButton = new MonsterButton(strongest.getCard().getImageSmall(), strongest.getCard());
         monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
@@ -68,10 +77,25 @@ public class OpponentPlayerStrategy {
     }
 
     public void endTurn(){
+        game.getPlayer().endTurn();
+        game.switchPlayer();
+        String currentPlayer = game.getCurrentPlayer().getPlayerName();
+        gui.getInfoPanel().getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br> MAIN PHASE 1 </html>");
+        JPanel phaseControlPanel = new PhaseControlPanel(gui);
+        phaseControlPanel.setBounds(1180,620,140,105);
+        gui.add(phaseControlPanel);
+        Component[] componentList = gui.getCardControlPanel().getComponents();
+        for(Component c : componentList){
+            gui.getCardControlPanel().remove(c);
+        }
+        gui.getCardControlPanel().revalidate();
+        gui.getCardControlPanel().repaint();
+
         game.setCurrentPlayer(game.getPlayer());
         MonsterCard drawnCard = game.getCurrentPlayer().drawCard();
         gui.setActivePlayer(gui.getPlayer1());
         gui.setOpponent(gui.getPlayer2());
         gui.addToHand(drawnCard, gui.getActivePlayer());
+
     }
 }

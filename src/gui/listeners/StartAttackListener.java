@@ -21,13 +21,11 @@ public class StartAttackListener extends MouseAdapter {
     private MonsterButton monsterButton;
 
     public StartAttackListener(GUI addedGUI, JButton atkButton, JButton dfsButton, MonsterButton addedMonsterButton){
-
         gui = addedGUI;
         cardControlPanel = gui.getCardControlPanel();
         attackButton = atkButton;
         defenseModeButton = dfsButton;
         monsterButton = addedMonsterButton;
-
 
         attackLabel = new JLabel("<html>SELECT<br> MONSTER TO<br> ATTACK</html>");
         attackLabel.setFont(new Font("Papyrus", Font.BOLD, 20));
