@@ -95,7 +95,7 @@ public class Player {
         }
     }
 
-    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent) throws WrongPhaseException{
+    public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent){
 
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
             monsterCard.setHaveAttacked(true);
@@ -117,10 +117,6 @@ public class Player {
                 opponent.field.addToGraveyard(opponentMonsterCard);
             }
         }
-//        else{
-//            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
-//            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
-//        }
     }
 
     public void attackDirectly(MonsterCard monsterCard, Player opponent) throws WrongPhaseException{
@@ -129,10 +125,10 @@ public class Player {
             monsterCard.setHaveAttacked(true);
             opponent.lifepoints = opponent.lifepoints - (monsterCard.getAttack());
         }
-//        else{
-//            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
-//            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
-//        }
+        else{
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+        }
     }
 
     public boolean switchMonsterMode(MonsterCard monsterCard){
@@ -176,9 +172,9 @@ public class Player {
         else if(phase == "BATTLE PHASE"){
             this.getField().setPhase("MAIN PHASE 2");
         }
-        else{
-            endTurn();
-        }
+//        else{
+//            endTurn();
+//        }
     }
 
     public void endTurn(){

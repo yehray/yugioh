@@ -4,6 +4,7 @@ package gui.listeners;
 
 import gui.GUI;
 import gui.MonsterButton;
+import gui.exceptions.AlreadyAttackedException;
 import gui.exceptions.WrongPhaseException;
 
 import javax.swing.*;
@@ -41,6 +42,10 @@ public class StartAttackListener extends MouseAdapter {
         if(gui.getGame().getCurrentPlayer().getField().getPhase() != "BATTLE PHASE"){
             JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
             throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+        }
+        if(monsterButton.getMonsterCard().getHaveAttacked()){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack twice in a turn");
+            throw new AlreadyAttackedException("Monster cannot attack twice in a turn");
         }
         if(gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().size() == 5){
             gui.getGame().getPlayer().attackDirectly(monsterButton.getMonsterCard(), gui.getGame().getOpponent());

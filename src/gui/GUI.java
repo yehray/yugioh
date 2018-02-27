@@ -275,6 +275,7 @@ public class GUI extends JFrame {
         monsterPanel.remove(index);
         monsterPanel.add(monsterButton, index);
         playerPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton.getMonsterCard());
+        game.getPlayer().getField().getMonsters().add(monsterButton.getMonsterCard());
         monsterButton.setIndex(index);
         monsterPanel.revalidate();
         monsterPanel.repaint();

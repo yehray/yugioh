@@ -24,12 +24,11 @@ public class PhaseListener extends MouseAdapter{
         String currentPhase = game.getPlayer().getField().getPhase();
         game.getCurrentPlayer().endPhase(currentPhase);
         String newPhase = game.getPlayer().getField().getPhase();
-        System.out.println(newPhase);
         String currentPlayer = game.getPlayer().getPlayerName();
 
         gui.getInfoPanel().getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br>" + newPhase + "</html>");
 
-        if(newPhase == "MAIN PHASE 2"){
+        if(currentPhase == "MAIN PHASE 2"){
             JOptionPane.showMessageDialog(null, "Must end turn after main phase 2");
             throw new EndTurnException("Must end turn after main phase 2");
         }
