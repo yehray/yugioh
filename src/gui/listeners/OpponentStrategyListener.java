@@ -19,6 +19,5 @@ public class OpponentStrategyListener extends MouseAdapter{
         opponentPlayerStrategy.drawCard();
         opponentPlayerStrategy.summonMonster();
         opponentPlayerStrategy.endTurn();
-
     }
 }

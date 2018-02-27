@@ -123,6 +123,18 @@ public class Player {
 //        }
     }
 
+    public void attackDirectly(MonsterCard monsterCard, Player opponent) throws WrongPhaseException{
+
+        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
+            monsterCard.setHaveAttacked(true);
+            opponent.lifepoints = opponent.lifepoints - (monsterCard.getAttack());
+        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+//            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+//        }
+    }
+
     public boolean switchMonsterMode(MonsterCard monsterCard){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
             if (monsterCard.getMode() == "ATTACK") {

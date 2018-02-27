@@ -42,13 +42,19 @@ public class StartAttackListener extends MouseAdapter {
 //            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
 //            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
 //        }
-        gui.setMonsterSelected(monsterButton);
-        cardControlPanel.remove(attackButton);
-        cardControlPanel.remove(defenseModeButton);
-        cardControlPanel.add(attackLabel);
-        cardControlPanel.add(executeAttackButton);
-        cardControlPanel.revalidate();
-        cardControlPanel.repaint();
+        if(gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().size() == 5){
+            gui.getGame().getPlayer().attackDirectly(monsterButton.getMonsterCard(), gui.getGame().getOpponent());
+            gui.getInfoPanel().getOpponentLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getOpponent().getLifepoints()));
+        }
+        else {
+            gui.setMonsterSelected(monsterButton);
+            cardControlPanel.remove(attackButton);
+            cardControlPanel.remove(defenseModeButton);
+            cardControlPanel.add(attackLabel);
+            cardControlPanel.add(executeAttackButton);
+            cardControlPanel.revalidate();
+            cardControlPanel.repaint();
+        }
     }
 }
 

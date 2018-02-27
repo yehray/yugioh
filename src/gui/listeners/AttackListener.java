@@ -38,9 +38,12 @@ public class AttackListener extends MouseAdapter{
             monsterCardZoneButton.setIndex(index);
             gui.getOpponentPlayer().getFieldPanel().getMonsterPanel().remove(index);
             gui.getOpponentPlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton, index);
-
+            gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
         }
+        monster = null;
+        opponentMonster = null;
         gui.getInfoPanel().repaint();
         gui.getInfoPanel().revalidate();
     }
 }
+
