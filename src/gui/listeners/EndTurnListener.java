@@ -25,15 +25,8 @@ public class EndTurnListener extends MouseAdapter {
     public void mouseClicked(MouseEvent e) {
         game.getPlayer().endTurn();
         game.switchPlayer();
-        String currentPlayer = game.getCurrentPlayer().getPlayerName();
+        String currentPlayer = game.getOpponent().getPlayerName();
         gui.getInfoPanel().getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br> MAIN PHASE 1 </html>");
-        JPanel phaseControlPanel = new PhaseControlPanel(gui);
-        phaseControlPanel.setBounds(1180,620,140,105);
-        gui.add(phaseControlPanel);
-        Component[] componentList = cardControlPanel.getComponents();
-        for(Component c : componentList){
-            cardControlPanel.remove(c);
-        }
         cardControlPanel.revalidate();
         cardControlPanel.repaint();
     }

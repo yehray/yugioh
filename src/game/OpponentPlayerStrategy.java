@@ -33,7 +33,7 @@ public class OpponentPlayerStrategy {
     public void summonMonster(){
 //        try
 //        {
-//            Thread.sleep(2000);
+//            Thread.sleep(1000);
 //        }
 //        catch(InterruptedException ex)
 //        {
@@ -77,6 +77,14 @@ public class OpponentPlayerStrategy {
     }
 
     public void endTurn(){
+        //        try
+//        {
+//            Thread.sleep(1000);
+//        }
+//        catch(InterruptedException ex)
+//        {
+//            Thread.currentThread().interrupt();
+//        }
         game.getPlayer().endTurn();
         game.switchPlayer();
         String currentPlayer = game.getCurrentPlayer().getPlayerName();

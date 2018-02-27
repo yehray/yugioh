@@ -38,10 +38,10 @@ public class StartAttackListener extends MouseAdapter {
     }
 
     public void mouseClicked(MouseEvent e){
-//        if(gui.getGame().getCurrentPlayer().getField().getPhase() != "BATTLE PHASE"){
-//            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
-//            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
-//        }
+        if(gui.getGame().getCurrentPlayer().getField().getPhase() != "BATTLE PHASE"){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+        }
         if(gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().size() == 5){
             gui.getGame().getPlayer().attackDirectly(monsterButton.getMonsterCard(), gui.getGame().getOpponent());
             gui.getInfoPanel().getOpponentLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getOpponent().getLifepoints()));

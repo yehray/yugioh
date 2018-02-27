@@ -183,6 +183,7 @@ public class Player {
 
     public void endTurn(){
         this.monsterSummoned = false;
+        this.getField().setPhase("MAIN PHASE 1");
         for(int i = 0; i < this.field.getMonsters().size(); i++){
             this.field.getMonsters().get(i).setHaveAttacked(false);
         }

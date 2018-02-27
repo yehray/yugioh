@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="210ec2d8-278d-4971-a68d-d0e6728b2b29" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/game/OpponentPlayerStrategy.class" afterPath="$PROJECT_DIR$/out/production/yugioh/game/OpponentPlayerStrategy.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/game/Player.class" afterPath="$PROJECT_DIR$/out/production/yugioh/game/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/AttackListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/AttackListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/OpponentStrategyListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/OpponentStrategyListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/EndTurnListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/EndTurnListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/PhaseListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/PhaseListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/StartAttackListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/gui/listeners/StartAttackListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.class" afterPath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Player.class" afterPath="$PROJECT_DIR$/src/game/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/AttackListener.class" afterPath="$PROJECT_DIR$/src/gui/listeners/AttackListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.class" afterPath="$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/EndTurnListener.class" afterPath="$PROJECT_DIR$/src/gui/listeners/EndTurnListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/PhaseListener.class" afterPath="$PROJECT_DIR$/src/gui/listeners/PhaseListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.class" afterPath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java" afterPath="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Player.java" afterPath="$PROJECT_DIR$/src/game/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/AttackListener.java" afterPath="$PROJECT_DIR$/src/gui/listeners/AttackListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.java" afterPath="$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/EndTurnListener.java" afterPath="$PROJECT_DIR$/src/gui/listeners/EndTurnListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/PhaseListener.java" afterPath="$PROJECT_DIR$/src/gui/listeners/PhaseListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java" afterPath="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,7 +36,7 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="617">
               <caret line="210" column="43" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
               <folding>
                 <element signature="e#4554#4555#0" expanded="true" />
@@ -43,41 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="129" column="82" lean-forward="false" selection-start-line="129" selection-start-column="82" selection-end-line="129" selection-end-column="82" />
+            <state relative-caret-position="1758">
+              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonsterCard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/MonsterCard.java">
+      <file leaf-file-name="PhaseControlPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/PhaseControlPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/mainGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="495">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,8 +69,8 @@
       <file leaf-file-name="OpponentPlayerStrategy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1121">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="1120">
+              <caret line="79" column="8" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,28 +81,38 @@
       <file leaf-file-name="AttackListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/listeners/AttackListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectFieldMonsterListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/listeners/SelectFieldMonsterListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8">
-              <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartAttackListener.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StartAttackListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+            <state relative-caret-position="495">
+              <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="43" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EndTurnListener.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gui/listeners/EndTurnListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhaseListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/listeners/PhaseListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -161,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/gui/listeners/defenseModeListener.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/ShowLargerImage.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/HighlightArea.java" />
         <option value="$PROJECT_DIR$/src/gui/FieldCardButton.java" />
@@ -185,8 +177,6 @@
         <option value="$PROJECT_DIR$/src/gui/OpponentHandButton.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/SelectAttackTargetListener.java" />
         <option value="$PROJECT_DIR$/src/game/MonsterCard.java" />
-        <option value="$PROJECT_DIR$/src/gui/listeners/PhaseListener.java" />
-        <option value="$PROJECT_DIR$/src/gui/listeners/EndTurnListener.java" />
         <option value="$PROJECT_DIR$/src/gui/MonsterButton.java" />
         <option value="$PROJECT_DIR$/src/gui/DefenseMonsterButton.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/SelectFieldMonsterListener.java" />
@@ -205,13 +195,16 @@
         <option value="$PROJECT_DIR$/src/gui/mainGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/HandButton.java" />
         <option value="$PROJECT_DIR$/src/game/cards/KaibaDeck.csv" />
-        <option value="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
         <option value="$PROJECT_DIR$/src/gui/GUI.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/AttackListener.java" />
-        <option value="$PROJECT_DIR$/src/game/Player.java" />
         <option value="$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java" />
+        <option value="$PROJECT_DIR$/src/gui/exceptions/EndTurnException.java" />
+        <option value="$PROJECT_DIR$/src/gui/listeners/PhaseListener.java" />
+        <option value="$PROJECT_DIR$/src/gui/listeners/EndTurnListener.java" />
+        <option value="$PROJECT_DIR$/src/game/Player.java" />
+        <option value="$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java" />
       </list>
     </option>
   </component>
@@ -511,7 +504,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gui/listeners/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/gui/listeners/PhaseListener.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -579,14 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/listeners/PhaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,17 +648,6 @@
         <state relative-caret-position="120">
           <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/exceptions/WrongPhaseException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="57" lean-forward="false" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
-          <folding>
-            <element signature="e#132#133#0" expanded="false" />
-            <element signature="e#162#163#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -766,14 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/PhaseControlPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/listeners/SelectFieldMonsterListener.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -827,14 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/listeners/EndTurnListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="37" column="35" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="37" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/listeners/OpponentStrategyListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -843,32 +800,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="210" column="43" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
-          <folding>
-            <element signature="e#4554#4555#0" expanded="true" />
-            <element signature="e#4599#4600#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/mainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -888,25 +824,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="129" column="82" lean-forward="false" selection-start-line="129" selection-start-column="82" selection-end-line="129" selection-end-column="82" />
+        <state relative-caret-position="617">
+          <caret line="210" column="43" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+          <folding>
+            <element signature="e#4554#4555#0" expanded="true" />
+            <element signature="e#4599#4600#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/PhaseControlPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/listeners/AttackListener.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/exceptions/EndTurnException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/listeners/SelectFieldMonsterListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
+        <state relative-caret-position="135">
           <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
           <folding />
         </state>
@@ -914,8 +861,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/listeners/StartAttackListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+        <state relative-caret-position="495">
+          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="43" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/exceptions/WrongPhaseException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="1" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/listeners/PhaseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1758">
+          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/listeners/AttackListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/OpponentPlayerStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="79" column="8" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/listeners/EndTurnListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>

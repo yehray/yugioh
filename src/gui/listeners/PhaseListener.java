@@ -2,7 +2,10 @@ package gui.listeners;
 
 import game.Game;
 import gui.GUI;
+import gui.exceptions.EndTurnException;
+import gui.exceptions.WrongPhaseException;
 
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -18,15 +21,17 @@ public class PhaseListener extends MouseAdapter{
 
 
     public void mouseClicked(MouseEvent e) {
-        String currentPhase = game.getCurrentPlayer().getField().getPhase();
+        String currentPhase = game.getPlayer().getField().getPhase();
         game.getCurrentPlayer().endPhase(currentPhase);
-        String newPhase = game.getCurrentPlayer().getField().getPhase();
-        String currentPlayer = game.getCurrentPlayer().getPlayerName();
+        String newPhase = game.getPlayer().getField().getPhase();
+        System.out.println(newPhase);
+        String currentPlayer = game.getPlayer().getPlayerName();
 
         gui.getInfoPanel().getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br>" + newPhase + "</html>");
 
         if(newPhase == "MAIN PHASE 2"){
-            gui.getPhaseControlPanel().remove(0);
+            JOptionPane.showMessageDialog(null, "Must end turn after main phase 2");
+            throw new EndTurnException("Must end turn after main phase 2");
         }
     }
 }
