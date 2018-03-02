@@ -85,28 +85,39 @@ public class OpponentPlayerStrategy {
             attackDirectly(strongestMonster);
 
         }
-        else{
+        else {
             MonsterButton weakest = selectWeakestOnField();
             MonsterCard weakestMonster = weakest.getMonsterCard();
-            if(weakestMonster.getAttack() <= strongestMonster.getAttack()){
-                player.getField().removeMonster(weakestMonster);
-                player.getField().addToGraveyard(weakestMonster);
-                player.lifepoints = game.getPlayer().lifepoints - (strongestMonster.getAttack() - weakestMonster.getAttack());
-                gui.getInfoPanel().getLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getPlayer().getLifepoints()));
-                int index = weakest.getIndex();
-                ImageIcon monsterCardZone = new ImageIcon(gui.getClass().getResource("resources/monsterCardZone.jpg"));
-                FieldCardButton monsterCardZoneButton = new FieldCardButton(monsterCardZone);
-                monsterCardZoneButton.addMouseListener(new SelectFieldCardListener(monsterCardZoneButton, gui));
-                monsterCardZoneButton.setIndex(index);
-                gui.getActivePlayer().getFieldPanel().getMonsterPanel().remove(index);
-                gui.getActivePlayer().getFieldPanel().getMonsterCardsOnField().remove(weakest);
-                gui.getActivePlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton, index);
-                gui.getActivePlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
-                gui.getActivePlayer().getFieldPanel().repaint();
-                gui.getActivePlayer().getFieldPanel().revalidate();
-
+            if (weakestMonster.getMode() == "ATTACK") {
+                if (weakestMonster.getAttack() <= strongestMonster.getAttack()) {
+                    player.lifepoints = game.getPlayer().lifepoints - (strongestMonster.getAttack() - weakestMonster.getAttack());
+                    gui.getInfoPanel().getLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getPlayer().getLifepoints()));
+                    removeMonster(weakestMonster, weakest);
+                }
+            }
+            if (weakestMonster.getMode() == "DEFENSE") {
+                if (weakestMonster.getDefence() <= strongestMonster.getAttack()) {
+                    removeMonster(weakestMonster, weakest);
+                }
             }
         }
+    }
+
+    public void removeMonster(MonsterCard weakestMonster, MonsterButton weakest){
+        player.getField().removeMonster(weakestMonster);
+        player.getField().addToGraveyard(weakestMonster);
+
+        int index = weakest.getIndex();
+        ImageIcon monsterCardZone = new ImageIcon(gui.getClass().getResource("resources/monsterCardZone.jpg"));
+        FieldCardButton monsterCardZoneButton = new FieldCardButton(monsterCardZone);
+        monsterCardZoneButton.addMouseListener(new SelectFieldCardListener(monsterCardZoneButton, gui));
+        monsterCardZoneButton.setIndex(index);
+        gui.getActivePlayer().getFieldPanel().getMonsterPanel().remove(index);
+        gui.getActivePlayer().getFieldPanel().getMonsterCardsOnField().remove(weakest);
+        gui.getActivePlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton, index);
+        gui.getActivePlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
+        gui.getActivePlayer().getFieldPanel().repaint();
+        gui.getActivePlayer().getFieldPanel().revalidate();
     }
 
     public HandButton selectStrongestInHand(){
