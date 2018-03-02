@@ -37,6 +37,7 @@ public class SelectFieldCardListener extends MouseAdapter{
 
 
     public void mouseClicked(MouseEvent e) {
+        System.out.println(fieldCardButton.getIndex());
         if(isSelected()) {
             if(this.isFirstClick) {
                 for (int i = 0; i < emptySpotsOnField.size(); i++) {

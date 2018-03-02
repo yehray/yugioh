@@ -58,7 +58,7 @@ public class OpponentPlayerStrategy {
             opponentPanel.getFieldPanel().getEmptySpotsOnField().remove(0);
             opponentPanel.getFieldPanel().getMonsterPanel().remove(index);
             opponentPanel.getFieldPanel().getMonsterPanel().add(monsterButton, index);
-            opponentPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton.getMonsterCard());
+            opponentPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton);
             monsterButton.setIndex(index);
             opponentPanel.revalidate();
             opponentPanel.repaint();
@@ -79,27 +79,34 @@ public class OpponentPlayerStrategy {
         if(selectStrongestOnField() == null){
             return;
         }
-        MonsterCard strongestMonster = selectStrongestOnField();
+        MonsterButton strongest = selectStrongestOnField();
+        MonsterCard strongestMonster = strongest.getMonsterCard();
         if(game.getPlayer().getField().getMonsters().size() == 0){
             attackDirectly(strongestMonster);
 
         }
-//        else{
-//            MonsterCard weakestMonster = selectWeakestOnField();
-//            if(weakestMonster.getAttack() <= strongestMonster.getAttack()){
-//                game.getOpponent().getField().removeMonster(monsterCard);
-//                game.getOpponent().getField().addToGraveyard(monsterCard);
-//                game.getPlayer().lifepoints = game.getPlayer().lifepoints - (strongestMonster.getAttack() - weakestMonster.getAttack());
-//                int index = gui.getMonsterTarget().getIndex();
-//                ImageIcon monsterCardZone = new ImageIcon(gui.getClass().getResource("resources/monsterCardZone.jpg"));
-//                FieldCardButton monsterCardZoneButton = new FieldCardButton(monsterCardZone);
-//                monsterCardZoneButton.addMouseListener(new SelectFieldCardListener(monsterCardZoneButton, gui));
-//                monsterCardZoneButton.setIndex(index);
-//                gui.getOpponentPlayer().getFieldPanel().getMonsterPanel().remove(index);
-//                gui.getOpponentPlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton, index);
-//                gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
-//            }
-//        }
+        else{
+            MonsterButton weakest = selectWeakestOnField();
+            MonsterCard weakestMonster = weakest.getMonsterCard();
+            if(weakestMonster.getAttack() <= strongestMonster.getAttack()){
+                player.getField().removeMonster(weakestMonster);
+                player.getField().addToGraveyard(weakestMonster);
+                player.lifepoints = game.getPlayer().lifepoints - (strongestMonster.getAttack() - weakestMonster.getAttack());
+                gui.getInfoPanel().getLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getPlayer().getLifepoints()));
+                int index = weakest.getIndex();
+                ImageIcon monsterCardZone = new ImageIcon(gui.getClass().getResource("resources/monsterCardZone.jpg"));
+                FieldCardButton monsterCardZoneButton = new FieldCardButton(monsterCardZone);
+                monsterCardZoneButton.addMouseListener(new SelectFieldCardListener(monsterCardZoneButton, gui));
+                monsterCardZoneButton.setIndex(index);
+                gui.getActivePlayer().getFieldPanel().getMonsterPanel().remove(index);
+                gui.getActivePlayer().getFieldPanel().getMonsterCardsOnField().remove(weakest);
+                gui.getActivePlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton, index);
+                gui.getActivePlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
+                gui.getActivePlayer().getFieldPanel().repaint();
+                gui.getActivePlayer().getFieldPanel().revalidate();
+
+            }
+        }
     }
 
     public HandButton selectStrongestInHand(){
@@ -119,36 +126,33 @@ public class OpponentPlayerStrategy {
         return strongest;
     }
 
-    public MonsterCard selectWeakestOnField(){
+    public MonsterButton selectWeakestOnField(){
         int weakest = Integer.MAX_VALUE;
-        int i = 0;
-        ArrayList<MonsterCard> monstersOnField = gui.getActivePlayer().getFieldPanel().getMonsterCardsOnField();
+        ArrayList<MonsterButton> monstersOnField = gui.getActivePlayer().getFieldPanel().getMonsterCardsOnField();
         if(monstersOnField.size() <= 0){
             return null;
         }
-        MonsterCard weakestCard = monstersOnField.get(0);
+        MonsterButton weakestCard = monstersOnField.get(0);
         for (int j = 0; j < monstersOnField.size(); j++) {
-            if (weakest > monstersOnField.get(j).getAttack()) {
-                weakest = monstersOnField.get(j).getAttack();
+            if (weakest > monstersOnField.get(j).getMonsterCard().getAttack()) {
+                weakest = monstersOnField.get(j).getMonsterCard().getAttack();
                 weakestCard = monstersOnField.get(j);
-                i = j;
             }
         }
-//        monstersOnField.remove(i);
         return weakestCard;
     }
 
-    public MonsterCard selectStrongestOnField(){
+    public MonsterButton selectStrongestOnField(){
         int strongest = 0;
         int i = 0;
-        ArrayList<MonsterCard> monstersOnField = gui.getOpponentPlayer().getFieldPanel().getMonsterCardsOnField();
+        ArrayList<MonsterButton> monstersOnField = gui.getOpponentPlayer().getFieldPanel().getMonsterCardsOnField();
         if(monstersOnField.size() <= 0){
             return null;
         }
-        MonsterCard strongestCard = monstersOnField.get(0);
+        MonsterButton strongestCard = monstersOnField.get(0);
         for (int j = 0; j < monstersOnField.size(); j++) {
-            if (strongest < monstersOnField.get(j).getAttack()) {
-                strongest = monstersOnField.get(j).getAttack();
+            if (strongest < monstersOnField.get(j).getMonsterCard().getAttack()) {
+                strongest = monstersOnField.get(j).getMonsterCard().getAttack();
                 strongestCard = monstersOnField.get(j);
                 i = j;
             }

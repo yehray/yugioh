@@ -74,6 +74,18 @@ public class GUI extends JFrame {
 //        MonsterCard gaiaTheFierceKnight = new MonsterCard("Gaia the Fierce Knight", 7, 2300, 2000);
 //        MonsterCard beaverWarrior = new MonsterCard("Beaver Warrior", 8, 3000, 2500);
 //        MonsterCard giantSoldierOfStone = new MonsterCard("Giant Soldier of Stone", 8, 3000, 2500);
+//        ArrayList<MonsterCard> arr = new ArrayList<MonsterCard>();
+//        arr.add(summonedSkull);
+//        arr.add(blueEyes);
+//        arr.add(darkMagician);
+//        for(int i = 0; i < arr.size(); i++){
+//            System.out.println(arr.get(i).getName());
+//        }
+//        arr.remove(darkMagician);
+//        for(int i = 0; i < arr.size(); i++){
+//            System.out.println(arr.get(i).getName());
+//        }
+
 //
 //        addToHand(giantSoldierOfStone);
 //        addToHand(summonedSkull);
@@ -258,14 +270,13 @@ public class GUI extends JFrame {
         monsterButton.addMouseListener(new SelectFieldMonsterListener(monsterButton, this));
         setMonsterSelected(monsterButton);
 
-
         for(int i = 0; i < handButtonsList.size(); i++) {
             if(handButtonsList.get(i) == monsterCardButton.getCardSource()){
                 playerPanel.getHandPanel().getHand().remove(handButtonsList.get(i));
             }
         }
 
-        ArrayList<FieldCardButton> cardsOnField = playerPanel.getFieldPanel().getCardsOnField();
+        ArrayList<FieldCardButton> cardsOnField = playerPanel.getFieldPanel().getEmptySpotsOnField();
         int index = 0;
         for(int i = 0; i < cardsOnField.size(); i++){
             if(cardsOnField.get(i).isHighlighted()){
@@ -274,7 +285,7 @@ public class GUI extends JFrame {
         }
         monsterPanel.remove(index);
         monsterPanel.add(monsterButton, index);
-        playerPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton.getMonsterCard());
+        playerPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton);
         game.getPlayer().getField().getMonsters().add(monsterButton.getMonsterCard());
         monsterButton.setIndex(index);
         monsterPanel.revalidate();

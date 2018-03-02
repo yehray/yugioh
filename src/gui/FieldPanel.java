@@ -14,13 +14,13 @@ public class FieldPanel extends JPanel{
     private JPanel spellPanel;
     private JPanel cardControlPanel;
     private ArrayList<FieldCardButton> emptySpotsOnField;
-    private ArrayList<MonsterCard> monsterCardsOnField;
+    private ArrayList<MonsterButton> monsterCardsOnField;
     private ArrayList<FieldCardButton> cardsOnField;
 
     public FieldPanel(GUI gui, String player){
         cardControlPanel = gui.getCardControlPanel();
         emptySpotsOnField = new ArrayList<FieldCardButton>();
-        monsterCardsOnField = new ArrayList<MonsterCard>();
+        monsterCardsOnField = new ArrayList<MonsterButton>();
         cardsOnField = new ArrayList<FieldCardButton>();
 
         this.setOpaque(false);
@@ -58,7 +58,7 @@ public class FieldPanel extends JPanel{
         return monsterPanel;
     }
 
-    public ArrayList<MonsterCard> getMonsterCardsOnField() {
+    public ArrayList<MonsterButton> getMonsterCardsOnField() {
         return monsterCardsOnField;
     }
 
