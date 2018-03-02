@@ -2,6 +2,7 @@ package game;
 
 import gui.*;
 import gui.listeners.SelectAttackTargetListener;
+import gui.listeners.SelectFieldCardListener;
 import gui.listeners.SelectFieldMonsterListener;
 import gui.listeners.ShowLargerImage;
 
@@ -13,11 +14,13 @@ import java.util.ArrayList;
 public class OpponentPlayerStrategy {
     private Game game;
     private GUI gui;
+    private Player player;
     private Player opponent;
     private PlayerPanel opponentPanel;
     public OpponentPlayerStrategy(Game currentGame, GUI currentGUI){
         game = currentGame;
         opponent = game.getOpponent();
+        player = game.getPlayer();
         gui = currentGUI;
         opponentPanel = gui.getOpponentPlayer();
     }
@@ -39,7 +42,7 @@ public class OpponentPlayerStrategy {
 //        {
 //            Thread.currentThread().interrupt();
 //        }
-        HandButton strongest = selectStrongest();
+        HandButton strongest = selectStrongestInHand();
         MonsterButton monsterButton = new MonsterButton(strongest.getCard().getImageSmall(), strongest.getCard());
         monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
 
@@ -63,10 +66,50 @@ public class OpponentPlayerStrategy {
 
     }
 
-    public HandButton selectStrongest(){
+    public void attackDirectly(MonsterCard monsterCard){
+        if(game.getPlayer().getField().getMonsters().size() == 0){
+            player.lifepoints = player.lifepoints - (monsterCard.getAttack());
+            gui.getInfoPanel().getLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getPlayer().getLifepoints()));
+        }
+        gui.getInfoPanel().repaint();
+        gui.getInfoPanel().revalidate();
+    }
+
+    public void attack(){
+        if(selectStrongestOnField() == null){
+            return;
+        }
+        MonsterCard strongestMonster = selectStrongestOnField();
+        if(game.getPlayer().getField().getMonsters().size() == 0){
+            attackDirectly(strongestMonster);
+
+        }
+//        else{
+//            MonsterCard weakestMonster = selectWeakestOnField();
+//            if(weakestMonster.getAttack() <= strongestMonster.getAttack()){
+//                game.getOpponent().getField().removeMonster(monsterCard);
+//                game.getOpponent().getField().addToGraveyard(monsterCard);
+//                game.getPlayer().lifepoints = game.getPlayer().lifepoints - (strongestMonster.getAttack() - weakestMonster.getAttack());
+//                int index = gui.getMonsterTarget().getIndex();
+//                ImageIcon monsterCardZone = new ImageIcon(gui.getClass().getResource("resources/monsterCardZone.jpg"));
+//                FieldCardButton monsterCardZoneButton = new FieldCardButton(monsterCardZone);
+//                monsterCardZoneButton.addMouseListener(new SelectFieldCardListener(monsterCardZoneButton, gui));
+//                monsterCardZoneButton.setIndex(index);
+//                gui.getOpponentPlayer().getFieldPanel().getMonsterPanel().remove(index);
+//                gui.getOpponentPlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton, index);
+//                gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
+//            }
+//        }
+    }
+
+    public HandButton selectStrongestInHand(){
+        if(opponentPanel.getHandPanel().getHandButtons().size() <= 0){
+            return null;
+        }
         ArrayList<HandButton> opponentHand = opponentPanel.getHandPanel().getHandButtons();
         HandButton strongest = opponentHand.get(0);
         int greatestAttack = 0;
+
         for(int i = 0; i < opponentHand.size(); i++){
             if(opponentHand.get(i).getCard().getAttack() > greatestAttack){
                 greatestAttack = opponentHand.get(i).getCard().getAttack();
@@ -74,6 +117,46 @@ public class OpponentPlayerStrategy {
             }
         }
         return strongest;
+    }
+
+    public MonsterCard selectWeakestOnField(){
+        int weakest = Integer.MAX_VALUE;
+        int i = 0;
+        ArrayList<MonsterCard> monstersOnField = gui.getActivePlayer().getFieldPanel().getMonsterCardsOnField();
+        if(monstersOnField.size() <= 0){
+            return null;
+        }
+        MonsterCard weakestCard = monstersOnField.get(0);
+        for (int j = 0; j < monstersOnField.size(); j++) {
+            if (weakest > monstersOnField.get(j).getAttack()) {
+                weakest = monstersOnField.get(j).getAttack();
+                weakestCard = monstersOnField.get(j);
+                i = j;
+            }
+        }
+//        monstersOnField.remove(i);
+        return weakestCard;
+    }
+
+    public MonsterCard selectStrongestOnField(){
+        int strongest = 0;
+        int i = 0;
+        ArrayList<MonsterCard> monstersOnField = gui.getOpponentPlayer().getFieldPanel().getMonsterCardsOnField();
+        if(monstersOnField.size() <= 0){
+            return null;
+        }
+        MonsterCard strongestCard = monstersOnField.get(0);
+        for (int j = 0; j < monstersOnField.size(); j++) {
+            if (strongest < monstersOnField.get(j).getAttack()) {
+                strongest = monstersOnField.get(j).getAttack();
+                strongestCard = monstersOnField.get(j);
+                i = j;
+            }
+        }
+//        monstersOnField.remove(i);
+        System.out.println(strongestCard.getName());
+        return strongestCard;
+
     }
 
     public void endTurn(){
