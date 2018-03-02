@@ -106,7 +106,6 @@ public class OpponentPlayerStrategy {
     public void removeMonster(MonsterCard weakestMonster, MonsterButton weakest){
         player.getField().removeMonster(weakestMonster);
         player.getField().addToGraveyard(weakestMonster);
-
         int index = weakest.getIndex();
         ImageIcon monsterCardZone = new ImageIcon(gui.getClass().getResource("resources/monsterCardZone.jpg"));
         FieldCardButton monsterCardZoneButton = new FieldCardButton(monsterCardZone);
@@ -202,6 +201,7 @@ public class OpponentPlayerStrategy {
         gui.setActivePlayer(gui.getPlayer1());
         gui.setOpponent(gui.getPlayer2());
         gui.addToHand(drawnCard, gui.getActivePlayer());
+        game.getCurrentWinner();
 
     }
 }

@@ -1,5 +1,6 @@
 package game;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -45,6 +46,20 @@ public class Game {
         this.winner = winner;
     }
 
+    public void getCurrentWinner(){
+        if(player.getLifepoints() <= 0){
+            setWinner(player);
+            JOptionPane.showMessageDialog(null, opponent.getPlayerName() + " wins the game!");
+        }
+
+        if(opponent.getLifepoints() <= 0){
+            System.out.println("Current winner");
+            setWinner(opponent);
+            JOptionPane.showMessageDialog(null, player.getPlayerName() + " wins the game!");
+
+        }
+    }
+
     public void setCurrentPlayer(Player currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
@@ -84,7 +99,7 @@ public class Game {
 
 
         player  = new Player("PLAYER 1", 8000);
-        opponent = new Player("PLAYER 2", 8000);
+        opponent = new Player("PLAYER 2", 1000);
 
         createDeck(player, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/YugiDeck.csv");
         createDeck(opponent, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/KaibaDeck.csv");
@@ -109,10 +124,5 @@ public class Game {
 //            opponent.drawCard();
 //        }
     }
-
-    public void endGame(){
-
-    }
-
 
 }

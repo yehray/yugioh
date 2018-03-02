@@ -117,9 +117,18 @@ public class Player {
                 opponent.field.addToGraveyard(opponentMonsterCard);
             }
         }
+        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "DEFENSE"){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if in defense position");
+            throw new WrongPhaseException("Monster cannot attack if in defense position");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+        }
+
     }
 
-    public void attackDirectly(MonsterCard monsterCard, Player opponent) throws WrongPhaseException{
+    public void attackDirectly(MonsterCard monsterCard, Player opponent){
 
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
             monsterCard.setHaveAttacked(true);
