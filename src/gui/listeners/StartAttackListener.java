@@ -4,8 +4,6 @@ package gui.listeners;
 
 import gui.GUI;
 import gui.MonsterButton;
-import gui.exceptions.AlreadyAttackedException;
-import gui.exceptions.WrongPhaseException;
 
 import javax.swing.*;
 import java.awt.*;

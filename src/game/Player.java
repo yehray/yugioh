@@ -1,6 +1,7 @@
 package game;
 
 import gui.MonsterButton;
+import gui.exceptions.AlreadyAttackedException;
 import gui.exceptions.WrongPhaseException;
 
 import javax.swing.*;
@@ -96,7 +97,18 @@ public class Player {
     }
 
     public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent){
-
+        if (monsterCard.getHaveAttacked()){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack twice in a turn");
+            throw new AlreadyAttackedException("Monster cannot attack twice in a turn");
+        }
+        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "DEFENSE"){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if in defense position");
+            throw new WrongPhaseException("Monster cannot attack if in defense position");
+        }
+        if (field.getPhase() != "BATTLE PHASE"){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
+            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
+        }
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && opponentMonsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
             monsterCard.setHaveAttacked(true);
             if (monsterCard.getAttack() >= opponentMonsterCard.getAttack()) {
@@ -117,26 +129,19 @@ public class Player {
                 opponent.field.addToGraveyard(opponentMonsterCard);
             }
         }
-        if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "DEFENSE"){
-            JOptionPane.showMessageDialog(null, "Monster cannot attack if in defense position");
-            throw new WrongPhaseException("Monster cannot attack if in defense position");
-        }
-        if (field.getPhase() != "BATTLE PHASE"){
-            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
-            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
-        }
-
+        
     }
 
     public void attackDirectly(MonsterCard monsterCard, Player opponent){
+        if (monsterCard.getHaveAttacked()){
+            JOptionPane.showMessageDialog(null, "Monster cannot attack twice in a turn");
+            throw new AlreadyAttackedException("Monster cannot attack twice in a turn");
+        }
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
             monsterCard.setHaveAttacked(true);
             opponent.lifepoints = opponent.lifepoints - (monsterCard.getAttack());
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
-            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
-        }
+
     }
 
     public boolean switchMonsterMode(MonsterCard monsterCard){
