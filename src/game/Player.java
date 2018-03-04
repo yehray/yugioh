@@ -129,7 +129,6 @@ public class Player {
     }
 
     public void attackDirectly(MonsterCard monsterCard, Player opponent){
-
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "ATTACK" && !monsterCard.getHaveAttacked()) {
             monsterCard.setHaveAttacked(true);
             opponent.lifepoints = opponent.lifepoints - (monsterCard.getAttack());

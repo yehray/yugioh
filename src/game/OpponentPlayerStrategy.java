@@ -23,11 +23,13 @@ public class OpponentPlayerStrategy {
     }
 
     public void drawCard(){
-        MonsterCard monsterCard = opponent.getDeck().drawOneCard();
-        ImageIcon cardBackground = new ImageIcon((getClass().getResource("/gui/resources/yugiohCardBackground.jpg")));
-        HandButton addedCard = new HandButton(cardBackground, monsterCard);
-        opponentPanel.getHandPanel().getHandButtons().add(addedCard);
-        opponentPanel.getHandPanel().getHand().add(addedCard);
+        if(opponentPanel.getHandPanel().getHand().getComponents().length < 7) {
+            MonsterCard monsterCard = opponent.getDeck().drawOneCard();
+            ImageIcon cardBackground = new ImageIcon((getClass().getResource("/gui/resources/yugiohCardBackground.jpg")));
+            HandButton addedCard = new HandButton(cardBackground, monsterCard);
+            opponentPanel.getHandPanel().getHandButtons().add(addedCard);
+            opponentPanel.getHandPanel().getHand().add(addedCard);
+        }
     }
 
     public void summonMonster(){
@@ -57,7 +59,7 @@ public class OpponentPlayerStrategy {
             opponentPanel.getFieldPanel().getMonsterPanel().add(monsterButton, index);
             opponentPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton);
             monsterButton.setIndex(index);
-            monsterButton.addMouseListener( new ShowOpponentLargerImage(gui.getCardControlPanel(), strongest.getCard(), gui));
+            monsterButton.addMouseListener(new ShowOpponentLargerImage(gui.getCardControlPanel(), strongest.getCard(), gui));
             opponentPanel.revalidate();
             opponentPanel.repaint();
         }
@@ -166,7 +168,6 @@ public class OpponentPlayerStrategy {
             }
         }
 //        monstersOnField.remove(i);
-        System.out.println(strongestCard.getName());
         return strongestCard;
 
     }

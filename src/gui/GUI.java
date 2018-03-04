@@ -2,6 +2,8 @@ package gui;
 import game.Game;
 import game.MonsterCard;
 import game.OpponentPlayerStrategy;
+import gui.exceptions.MaxHandSizeException;
+import gui.exceptions.WrongPhaseException;
 import gui.listeners.*;
 
 import javax.swing.*;
@@ -251,15 +253,20 @@ public class GUI extends JFrame {
     }
 
     public void addToHand(MonsterCard card, PlayerPanel player){
-        HandButton addedCard = new HandButton(card.getImageSmall(), card);
-        addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
-        addedCard.addMouseListener(new SelectHandCardListener(addedCard, this));
-        addedCard.addMouseListener(new PopUpListener(player.getHandPanel().getCurrentLayout()));
-        player.getHandPanel().getHand().add(addedCard);
-        player.getHandPanel().getHandButtons().add(addedCard);
-        player.getHandPanel().getHandButtons().add(addedCard);
-        addedCard.setVisible(true);
-        addedCard.validate();
+        if(player.getHandPanel().getHand().getComponents().length < 7) {
+            HandButton addedCard = new HandButton(card.getImageSmall(), card);
+            addedCard.addMouseListener(new ShowLargerImage(cardControlPanel, card));
+            addedCard.addMouseListener(new SelectHandCardListener(addedCard, this));
+            addedCard.addMouseListener(new PopUpListener(player.getHandPanel().getCurrentLayout()));
+            player.getHandPanel().getHand().add(addedCard);
+            player.getHandPanel().getHandButtons().add(addedCard);
+            addedCard.setVisible(true);
+            addedCard.validate();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Max hand size reached");
+            throw new MaxHandSizeException("Max hand size reached");
+        }
     }
 
     public MonsterButton summonMonster(HandButton monsterCardButton, PlayerPanel playerPanel){
@@ -273,6 +280,7 @@ public class GUI extends JFrame {
         for(int i = 0; i < handButtonsList.size(); i++) {
             if(handButtonsList.get(i) == monsterCardButton.getCardSource()){
                 playerPanel.getHandPanel().getHand().remove(handButtonsList.get(i));
+                System.out.println(playerPanel.getHandPanel().getHand().getComponents().length);
             }
         }
 
