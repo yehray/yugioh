@@ -36,17 +36,11 @@ public class StartAttackListener extends MouseAdapter {
         executeAttackButton = new JButton("ATTACK");
         executeAttackButton.setBounds(275,40, 125,50);
         executeAttackButton.addMouseListener(new AttackListener(gui));
+
     }
 
     public void mouseClicked(MouseEvent e){
-        if(gui.getGame().getCurrentPlayer().getField().getPhase() != "BATTLE PHASE"){
-            JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
-            throw new WrongPhaseException("Monster cannot attack if not in battle phase");
-        }
-        if(monsterButton.getMonsterCard().getHaveAttacked()){
-            JOptionPane.showMessageDialog(null, "Monster cannot attack twice in a turn");
-            throw new AlreadyAttackedException("Monster cannot attack twice in a turn");
-        }
+
         if(gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().size() == 5){
             gui.getGame().getPlayer().attackDirectly(monsterButton.getMonsterCard(), gui.getGame().getOpponent());
             gui.getInfoPanel().getOpponentLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getOpponent().getLifepoints()));

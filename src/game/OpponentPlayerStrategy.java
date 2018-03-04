@@ -1,10 +1,7 @@
 package game;
 
 import gui.*;
-import gui.listeners.SelectAttackTargetListener;
-import gui.listeners.SelectFieldCardListener;
-import gui.listeners.SelectFieldMonsterListener;
-import gui.listeners.ShowLargerImage;
+import gui.listeners.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,6 +57,7 @@ public class OpponentPlayerStrategy {
             opponentPanel.getFieldPanel().getMonsterPanel().add(monsterButton, index);
             opponentPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton);
             monsterButton.setIndex(index);
+            monsterButton.addMouseListener( new ShowOpponentLargerImage(gui.getCardControlPanel(), strongest.getCard(), gui));
             opponentPanel.revalidate();
             opponentPanel.repaint();
         }

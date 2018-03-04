@@ -121,7 +121,7 @@ public class Player {
             JOptionPane.showMessageDialog(null, "Monster cannot attack if in defense position");
             throw new WrongPhaseException("Monster cannot attack if in defense position");
         }
-        else{
+        if (field.getPhase() != "BATTLE PHASE"){
             JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
             throw new WrongPhaseException("Monster cannot attack if not in battle phase");
         }

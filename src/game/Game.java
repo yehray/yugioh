@@ -86,6 +86,8 @@ public class Game {
             }
             for(int i = 0; i < lines.size(); i++){
                 MonsterCard monsterCard = new MonsterCard(lines.get(i)[0], Integer.parseInt(lines.get(i)[1]), Integer.parseInt(lines.get(i)[2]), Integer.parseInt(lines.get(i)[3]));
+                System.out.println(monsterCard.getImageSmall());
+                System.out.println(monsterCard.getImageLarge());
                 player.getDeck().addCardToDeck(monsterCard);
             }
         }
