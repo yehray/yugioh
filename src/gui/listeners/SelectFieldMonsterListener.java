@@ -58,9 +58,16 @@ public class SelectFieldMonsterListener extends MouseAdapter{
             }
             fieldMonsterButton.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
             fieldMonsterButton.setHighlighted(true);
+            cardControlPanel.add(attackButton);
+            cardControlPanel.add(defenseModeButton);
+            cardControlPanel.revalidate();
+            cardControlPanel.repaint();
         }
         else {
             fieldMonsterButton.setBorder(BorderFactory.createEmptyBorder());
+            for(int i = 0; i < cardControlPanel.getComponents().length; i++){
+                cardControlPanel.remove(i);
+            }
             fieldMonsterButton.setHighlighted(false);
         }
         fieldMonsterButton.revalidate();
