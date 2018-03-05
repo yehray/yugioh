@@ -44,6 +44,7 @@ public class OpponentPlayerStrategy {
         HandButton strongest = selectStrongestInHand();
         MonsterButton monsterButton = new MonsterButton(strongest.getCard().getImageSmall(), strongest.getCard());
         monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
+        monsterButton.addMouseListener(new ShowOpponentLargerImage(gui.getCardControlPanel(), strongest.getCard(), gui));
 
         for(int i = 0; i < opponentPanel.getHandPanel().getHandButtons().size(); i++) {
             HandButton currentButton = opponentPanel.getHandPanel().getHandButtons().get(i);
@@ -59,7 +60,6 @@ public class OpponentPlayerStrategy {
             opponentPanel.getFieldPanel().getMonsterPanel().add(monsterButton, index);
             opponentPanel.getFieldPanel().getMonsterCardsOnField().add(monsterButton);
             monsterButton.setIndex(index);
-            monsterButton.addMouseListener(new ShowOpponentLargerImage(gui.getCardControlPanel(), strongest.getCard(), gui));
             opponentPanel.revalidate();
             opponentPanel.repaint();
         }

@@ -280,7 +280,6 @@ public class GUI extends JFrame {
         for(int i = 0; i < handButtonsList.size(); i++) {
             if(handButtonsList.get(i) == monsterCardButton.getCardSource()){
                 playerPanel.getHandPanel().getHand().remove(handButtonsList.get(i));
-                System.out.println(playerPanel.getHandPanel().getHand().getComponents().length);
             }
         }
 

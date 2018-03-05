@@ -129,7 +129,7 @@ public class Player {
                 opponent.field.addToGraveyard(opponentMonsterCard);
             }
         }
-        
+
     }
 
     public void attackDirectly(MonsterCard monsterCard, Player opponent){
