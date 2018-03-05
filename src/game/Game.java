@@ -99,7 +99,7 @@ public class Game {
 
 
         player  = new Player("PLAYER 1", 8000);
-        opponent = new Player("PLAYER 2", 8000);
+        opponent = new Player("PLAYER 2", 1000);
 
         createDeck(player, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/YugiDeck.csv");
         createDeck(opponent, "/Users/yehray/IdeaProjects/yugioh/src/game/cards/KaibaDeck.csv");

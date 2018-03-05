@@ -51,6 +51,7 @@ public class AttackListener extends MouseAdapter{
             gui.getActivePlayer().getFieldPanel().getMonsterPanel().add(monsterCardZoneButton, index);
             gui.getActivePlayer().getFieldPanel().getEmptySpotsOnField().add(monsterCardZoneButton);
         }
+        game.getCurrentWinner();
         monster = null;
         opponentMonster = null;
         gui.getInfoPanel().repaint();
