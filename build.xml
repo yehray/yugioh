@@ -5,7 +5,7 @@
 
     <target name="run" depends="compile">
 
-        <java classname="gui.mainGUI" fork="true">
+        <java classname="com.gui.mainGUI" fork="true">
         <classpath>
             <path location="src" />
         </classpath>
@@ -22,7 +22,7 @@
 
             <batchtest fork="yes" todir="/Users/yehray/IdeaProjects/yugioh/test">
                 <fileset dir="/Users/yehray/IdeaProjects/yugioh/test">
-                    <include name="/Users/yehray/IdeaProjects/yugioh/test/Tests.java" />
+                    <include name="/Users/yehray/IdeaProjects/yugioh/test/com/Tests.java" />
                 </fileset>
             </batchtest>
         </junit>
