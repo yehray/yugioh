@@ -47,15 +47,10 @@ public class Game {
 
     public void getCurrentWinner(){
         if(player.getLifepoints() <= 0){
-            setWinner(player);
-            JOptionPane.showMessageDialog(null, opponent.getPlayerName() + " wins the com.game!");
-        }
-
-        if(opponent.getLifepoints() <= 0){
-            System.out.println("Current winner");
             setWinner(opponent);
-            JOptionPane.showMessageDialog(null, player.getPlayerName() + " wins the com.game!");
-
+        }
+        if(opponent.getLifepoints() <= 0){
+            setWinner(player);
         }
     }
 

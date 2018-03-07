@@ -44,7 +44,7 @@ public class Field {
     }
 
     public void setMonster(MonsterCard monsterCard){
-        if(monsterZone.size() < 5){
+        if(monsterZone.size() < 6){
             monsterZone.add(monsterCard);
         }
     }

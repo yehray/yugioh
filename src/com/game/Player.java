@@ -1,6 +1,7 @@
 package com.game;
 
 import com.gui.exceptions.AlreadyAttackedException;
+import com.gui.exceptions.DefenseModeException;
 import com.gui.exceptions.WrongPhaseException;
 
 import javax.swing.*;
@@ -68,10 +69,10 @@ public class Player {
         return false;
     }
 
-    public void summonMonster(MonsterCard monsterCard, String mode){
+    public void summonMonster(MonsterCard monsterCard){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
                 field.setMonster(monsterCard);
-                monsterCard.setMode(mode);
+                hand.removeCardFromHand(monsterCard);
                 this.monsterSummoned = true;
         }
     }
@@ -102,7 +103,7 @@ public class Player {
         }
         if (field.getPhase() == "BATTLE PHASE" && monsterCard.getMode() == "DEFENSE"){
             JOptionPane.showMessageDialog(null, "Monster cannot attack if in defense position");
-            throw new WrongPhaseException("Monster cannot attack if in defense position");
+            throw new DefenseModeException("Monster cannot attack if in defense position");
         }
         if (field.getPhase() != "BATTLE PHASE"){
             JOptionPane.showMessageDialog(null, "Monster cannot attack if not in battle phase");
@@ -140,7 +141,6 @@ public class Player {
             monsterCard.setHaveAttacked(true);
             opponent.lifepoints = opponent.lifepoints - (monsterCard.getAttack());
         }
-
     }
 
     public boolean switchMonsterMode(MonsterCard monsterCard){

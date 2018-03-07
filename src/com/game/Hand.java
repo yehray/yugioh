@@ -26,6 +26,12 @@ public class Hand {
     }
 
     public void removeCardFromHand(Card card){
-        removeCardFromHand(card);
+        for(int i = 0; i < cardsInHand.size(); i++){
+            if(cardsInHand.get(i) == card){
+                cardsInHand.remove(card);
+            }
+        }
+
+
     }
 }
