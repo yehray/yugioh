@@ -8,9 +8,12 @@ import java.awt.event.MouseEvent;
 
 public class PopUpListener extends MouseAdapter{
     private OverlapLayout layout;
+
+    /**
+     * Card in hand pops up if mouse hovers over the card. Card pops back down once the mouse leaves the area of the card.
+     */
     public PopUpListener(OverlapLayout addedLayout){
         layout = addedLayout;
-
     }
 
     @Override

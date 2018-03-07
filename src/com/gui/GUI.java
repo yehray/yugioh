@@ -225,7 +225,6 @@ public class GUI extends JFrame {
             player.getFieldPanel().getCardsOnField().add(monsterCardZoneButton);
 
             FieldCardButton spellCardZoneButton = new FieldCardButton(spellCardZone);
-            spellCardZoneButton.addMouseListener(new HighlightArea(spellCardZoneButton, cardControlPanel));
             player.getFieldPanel().getSpellPanel().add(spellCardZoneButton);
             player.getFieldPanel().revalidate();
             player.getFieldPanel().repaint();

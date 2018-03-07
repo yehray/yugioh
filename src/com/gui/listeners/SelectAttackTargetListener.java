@@ -2,13 +2,16 @@ package com.gui.listeners;
 
 import com.gui.GUI;
 import com.gui.MonsterButton;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+
+/**
+ * Highlights desired target for a monster that is performing an attack. Sets that card as the attack target when clicked.
+ */
 public class SelectAttackTargetListener extends MouseAdapter{
     private MonsterButton monsterButton;
     private GUI gui;

@@ -14,13 +14,14 @@ public class ShowLargerImage extends MouseAdapter{
     private JLabel picLabel;
     private JLabel backLabel;
 
-
+    /**
+     * Displays a larger image of the card in the card control panel when the card on the player's side of the field is clicked.
+     */
     public ShowLargerImage(JPanel addedPanel, Card addedCard){
         cardControlPanel = addedPanel;
         card = addedCard;
         isFirstClick = true;
         picLabel = new JLabel(card.getImageLarge());
-//        backLabel = new JLabel(new ImageIcon(this.getClass().getResource("/com.gui/resources/yugiohCardBackground Large.jpg")));
     }
 
     public void mouseClicked(MouseEvent e) {

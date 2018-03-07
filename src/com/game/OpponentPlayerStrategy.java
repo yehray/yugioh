@@ -127,7 +127,7 @@ public class OpponentPlayerStrategy {
     }
 
     /**
-     * Selects strongest monster on opponents side of the field
+     * Selects monster with highest attack in the opponent's hand.
      */
     public HandButton selectStrongestInHand(){
         if(opponentPanel.getHandPanel().getHandButtons().size() <= 0){
@@ -147,7 +147,7 @@ public class OpponentPlayerStrategy {
     }
 
     /**
-     * Selects weakest monster on opposing player's side of the field.
+     * Selects monster with lowerst attack on opposing player's side of the field.
      */
     public MonsterButton selectWeakestOnField(){
         int weakest = Integer.MAX_VALUE;
@@ -165,6 +165,9 @@ public class OpponentPlayerStrategy {
         return weakestCard;
     }
 
+    /**
+     * Selects monster with highest attack on opponents side of the field.
+     */
     public MonsterButton selectStrongestOnField(){
         int strongest = 0;
         int i = 0;

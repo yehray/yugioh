@@ -2,7 +2,6 @@ package com.gui.listeners;
 
 import com.game.OpponentPlayerStrategy;
 import com.gui.GUI;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -14,6 +13,9 @@ public class OpponentStrategyListener extends MouseAdapter{
         opponentPlayerStrategy = gui.getOpponentPlayerStrategy();
     }
 
+    /**
+     * Starts opponent's turn when END TURN button is clicked. Opponent plays based on the opponent strategy that is set.
+     */
     public void mouseClicked(MouseEvent e) {
         opponentPlayerStrategy.drawCard();
         opponentPlayerStrategy.summonMonster();

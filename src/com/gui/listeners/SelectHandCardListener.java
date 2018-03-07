@@ -1,7 +1,6 @@
 package com.gui.listeners;
 
 import com.gui.*;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -17,6 +16,9 @@ public class SelectHandCardListener extends MouseAdapter{
     private boolean highlight;
     private GUI gui;
 
+    /**
+     * Highlights the card when mouse hovers over card. Highlights the card displays the SUMMON button when clicked
+     */
     public SelectHandCardListener(HandButton addedButton, GUI addedGUI){
         gui = addedGUI;
         handbutton = addedButton;
@@ -28,7 +30,6 @@ public class SelectHandCardListener extends MouseAdapter{
         summonButton.addMouseListener(new SummonMonsterListener(gui, handbutton));
 
     }
-
 
     public void mouseClicked(MouseEvent e) {
         handbutton.setCardSource(e.getSource());

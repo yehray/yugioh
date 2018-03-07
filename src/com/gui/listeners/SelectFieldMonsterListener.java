@@ -3,7 +3,6 @@ package com.gui.listeners;
 import com.gui.FieldCardButton;
 import com.gui.GUI;
 import com.gui.MonsterButton;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -20,6 +19,10 @@ public class SelectFieldMonsterListener extends MouseAdapter{
     private ArrayList<MonsterButton> monstersOnField;
     private ArrayList<FieldCardButton> emptySpotsOnField;
 
+    /**
+     * Highlights the card when mouse hovers over card. Highlights the card and sets it as the selected card when the card is clicked.
+     * Displays ATTACK and DEFENSE MODE buttons when the card is clicked.
+     */
     public SelectFieldMonsterListener(MonsterButton monsterButton, GUI addedGUI){
         gui = addedGUI;
         fieldMonsterButton = monsterButton;

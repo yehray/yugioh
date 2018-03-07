@@ -2,7 +2,6 @@ package com.gui.listeners;
 
 import com.game.Game;
 import com.gui.GUI;
-
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,10 +15,11 @@ public class EndTurnListener extends MouseAdapter {
         gui = addedGUI;
         game = gui.getGame();
         cardControlPanel = addedGUI.getCardControlPanel();
-
     }
 
-
+    /**
+     * Changes label on the game board to the corresponding phase.
+     */
     public void mouseClicked(MouseEvent e) {
         game.getPlayer().endTurn();
         game.switchPlayer();

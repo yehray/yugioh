@@ -3,7 +3,6 @@ package com.gui.listeners;
 import com.gui.FieldCardButton;
 import com.gui.GUI;
 import com.gui.MonsterButton;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -17,6 +16,9 @@ public class SelectFieldCardListener extends MouseAdapter{
     private GUI gui;
     private JPanel cardControlPanel;
 
+    /**
+     * Highlights the card when mouse hovers over card. Highlights the card and sets it as the selected card when the card is clicked.
+     */
     public SelectFieldCardListener(FieldCardButton fieldButton, GUI addedGUI){
         gui = addedGUI;
         fieldCardButton = fieldButton;
@@ -28,7 +30,6 @@ public class SelectFieldCardListener extends MouseAdapter{
 
     public void mouseClicked(MouseEvent e) {
         if(!fieldCardButton.isHighlighted()) {
-
             for (int i = 0; i < monstersOnField.size(); i++) {
                 monstersOnField.get(i).setBorder(BorderFactory.createEmptyBorder());
                 monstersOnField.get(i).setHighlighted(false);

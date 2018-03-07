@@ -1,10 +1,7 @@
-
 package com.gui.listeners;
-
 
 import com.gui.GUI;
 import com.gui.MonsterButton;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -19,6 +16,10 @@ public class StartAttackListener extends MouseAdapter {
     private JButton executeAttackButton;
     private MonsterButton monsterButton;
 
+    /**
+     * Allows the player to select a monster on the opponent's side of the field as a target for the attack. Displays the ATTACK button on the card
+     * control panel. This button allows the player to execute the attack.
+     */
     public StartAttackListener(GUI addedGUI, JButton atkButton, JButton dfsButton, MonsterButton addedMonsterButton){
         gui = addedGUI;
         cardControlPanel = gui.getCardControlPanel();
@@ -38,7 +39,6 @@ public class StartAttackListener extends MouseAdapter {
     }
 
     public void mouseClicked(MouseEvent e){
-
         if(gui.getOpponentPlayer().getFieldPanel().getEmptySpotsOnField().size() == 5){
             gui.getGame().getPlayer().attackDirectly(monsterButton.getMonsterCard(), gui.getGame().getOpponent());
             gui.getInfoPanel().getOpponentLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getOpponent().getLifepoints()));

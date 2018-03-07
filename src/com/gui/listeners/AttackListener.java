@@ -5,7 +5,6 @@ import com.game.MonsterCard;
 import com.game.Player;
 import com.gui.FieldCardButton;
 import com.gui.GUI;
-
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -20,7 +19,10 @@ public class AttackListener extends MouseAdapter{
         isFirstClick = true;
     }
 
-
+    /**
+     * Performs attack based on the monster selected by the player. Removes the monster card from the field if it is destroyed and updates the resulting lifepoints.
+     * Checks if the player wins the game after performing the attack.
+     */
     public void mouseClicked(MouseEvent e){
         MonsterCard monster = gui.getMonsterSelected().getMonsterCard();
         MonsterCard opponentMonster = gui.getMonsterTarget().getMonsterCard();
