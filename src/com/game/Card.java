@@ -50,8 +50,6 @@ abstract public class Card {
         return new ImageIcon(this.getClass().getResource("/com/gui/resources/" + name + " Large.jpg"));
     }
 
-
-
     public Card(){
         faceDown = true;
     }

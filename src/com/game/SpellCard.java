@@ -4,6 +4,11 @@ abstract public class SpellCard extends Card {
     private String name;
     private String spellOrTrap;
 
+    public SpellCard(String nm, String sot){
+        name = nm;
+        spellOrTrap = sot;
+    }
+
     public String getName() {
         return name;
     }
@@ -21,11 +26,6 @@ abstract public class SpellCard extends Card {
     }
 
     public void activateSpell(){
-
     }
 
-    public SpellCard(String nm, String sot){
-        name = nm;
-        spellOrTrap = sot;
-    }
 }

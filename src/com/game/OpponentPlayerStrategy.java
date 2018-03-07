@@ -13,6 +13,7 @@ public class OpponentPlayerStrategy {
     private Player player;
     private Player opponent;
     private PlayerPanel opponentPanel;
+
     public OpponentPlayerStrategy(Game currentGame, GUI currentGUI){
         game = currentGame;
         opponent = game.getOpponent();
@@ -21,6 +22,9 @@ public class OpponentPlayerStrategy {
         opponentPanel = gui.getOpponentPlayer();
     }
 
+    /**
+     * The opponent starts the turn by drawing one card. The card is displayed on the game board as the artwork on the back of the card.
+     */
     public void drawCard(){
         if(opponentPanel.getHandPanel().getHand().getComponents().length < 7) {
             MonsterCard monsterCard = opponent.getDeck().drawOneCard();
@@ -31,15 +35,10 @@ public class OpponentPlayerStrategy {
         }
     }
 
+    /**
+     * The opponent picks the monster card with the highest attack in their hand and summons it on the field in attack position
+     */
     public void summonMonster(){
-//        try
-//        {
-//            Thread.sleep(1000);
-//        }
-//        catch(InterruptedException ex)
-//        {
-//            Thread.currentThread().interrupt();
-//        }
         HandButton strongest = selectStrongestInHand();
         MonsterButton monsterButton = new MonsterButton(strongest.getCard().getImageSmall(), strongest.getCard());
         monsterButton.addMouseListener(new SelectAttackTargetListener(monsterButton, gui));
@@ -62,9 +61,12 @@ public class OpponentPlayerStrategy {
             opponentPanel.revalidate();
             opponentPanel.repaint();
         }
-
     }
 
+    /**
+     * If there are no monsters on the field, the opponent selects the monster card on their side of the field with highest attack and
+     * attacks the other player's lifepoints directly.
+     */
     public void attackDirectly(MonsterCard monsterCard){
         if(game.getPlayer().getField().getMonsters().size() == 0){
             player.lifepoints = player.lifepoints - (monsterCard.getAttack());
@@ -74,22 +76,25 @@ public class OpponentPlayerStrategy {
         gui.getInfoPanel().revalidate();
     }
 
+    /**
+     * The opponent selects the monster card on their side of the field with highest attack and selects the monster on the opposing player's
+     * side of the field with the lowest attack. The opponent attacks this monster with their selected monster.
+     */
     public void attack(){
         if(selectStrongestOnField() == null){
             return;
         }
         MonsterButton strongest = selectStrongestOnField();
         MonsterCard strongestMonster = strongest.getMonsterCard();
-        if(game.getPlayer().getField().getMonsters().size() == 0){
+        if(player.getField().getMonsters().size() == 0){
             attackDirectly(strongestMonster);
-
         }
         else {
             MonsterButton weakest = selectWeakestOnField();
             MonsterCard weakestMonster = weakest.getMonsterCard();
             if (weakestMonster.getMode() == "ATTACK") {
                 if (weakestMonster.getAttack() <= strongestMonster.getAttack()) {
-                    player.lifepoints = game.getPlayer().lifepoints - (strongestMonster.getAttack() - weakestMonster.getAttack());
+                    player.lifepoints = player.lifepoints - (strongestMonster.getAttack() - weakestMonster.getAttack());
                     gui.getInfoPanel().getLifepointsPanel().setText("LIFEPOINTS: " + Integer.toString(gui.getGame().getPlayer().getLifepoints()));
                     removeMonster(weakestMonster, weakest);
                 }
@@ -102,6 +107,9 @@ public class OpponentPlayerStrategy {
         }
     }
 
+    /**
+     * Removes monster from the opposing player's side of the field if the monster is destroyed in an attack.
+     */
     public void removeMonster(MonsterCard weakestMonster, MonsterButton weakest){
         player.getField().removeMonster(weakestMonster);
         player.getField().addToGraveyard(weakestMonster);
@@ -118,6 +126,9 @@ public class OpponentPlayerStrategy {
         gui.getActivePlayer().getFieldPanel().revalidate();
     }
 
+    /**
+     * Selects strongest monster on opponents side of the field
+     */
     public HandButton selectStrongestInHand(){
         if(opponentPanel.getHandPanel().getHandButtons().size() <= 0){
             return null;
@@ -135,6 +146,9 @@ public class OpponentPlayerStrategy {
         return strongest;
     }
 
+    /**
+     * Selects weakest monster on opposing player's side of the field.
+     */
     public MonsterButton selectWeakestOnField(){
         int weakest = Integer.MAX_VALUE;
         ArrayList<MonsterButton> monstersOnField = gui.getActivePlayer().getFieldPanel().getMonsterCardsOnField();
@@ -166,21 +180,14 @@ public class OpponentPlayerStrategy {
                 i = j;
             }
         }
-//        monstersOnField.remove(i);
         return strongestCard;
-
     }
 
+    /**
+     * When the opponent ends the turn, it switches to the opposing player. The opposing player is set to MAIN PHASE 1 and draws one card.
+     */
     public void endTurn(){
-        //        try
-//        {
-//            Thread.sleep(1000);
-//        }
-//        catch(InterruptedException ex)
-//        {
-//            Thread.currentThread().interrupt();
-//        }
-        game.getPlayer().endTurn();
+        player.endTurn();
         game.switchPlayer();
         String currentPlayer = game.getCurrentPlayer().getPlayerName();
         gui.getInfoPanel().getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br> MAIN PHASE 1 </html>");
@@ -194,12 +201,11 @@ public class OpponentPlayerStrategy {
         gui.getCardControlPanel().revalidate();
         gui.getCardControlPanel().repaint();
 
-        game.setCurrentPlayer(game.getPlayer());
+        game.setCurrentPlayer(player);
         MonsterCard drawnCard = game.getCurrentPlayer().drawCard();
         gui.setActivePlayer(gui.getPlayer1());
         gui.setOpponent(gui.getPlayer2());
         gui.addToHand(drawnCard, gui.getActivePlayer());
         game.getCurrentWinner();
-
     }
 }

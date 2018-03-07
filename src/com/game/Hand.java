@@ -6,6 +6,11 @@ public class Hand {
     private ArrayList<MonsterCard> cardsInHand;
     private String playersHand;
 
+    public Hand(Player player){
+        cardsInHand = new ArrayList<MonsterCard>();
+        playersHand = player.getPlayerName();
+    }
+
     public ArrayList<MonsterCard> getCardsInHand() {
         return cardsInHand;
     }
@@ -14,11 +19,9 @@ public class Hand {
         return playersHand;
     }
 
-    public Hand(Player player){
-        cardsInHand = new ArrayList<MonsterCard>();
-        playersHand = player.getPlayerName();
-    }
-
+    /**
+     * Each player has a max hand size of 6
+     */
     public void addCardToHand(MonsterCard card){
         if(cardsInHand.size() < 7){
             cardsInHand.add(card);
@@ -31,7 +34,5 @@ public class Hand {
                 cardsInHand.remove(card);
             }
         }
-
-
     }
 }

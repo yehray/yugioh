@@ -19,10 +19,6 @@ public class Game {
         return player;
     }
 
-    public Player getCurrentPlayer() {
-        return currentPlayer;
-    }
-
     public void setPlayer(Player newPlayer, int lifepoints){
         this.player = newPlayer;
         player.lifepoints = lifepoints;
@@ -45,6 +41,14 @@ public class Game {
         this.winner = winner;
     }
 
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
     public void getCurrentWinner(){
         if(player.getLifepoints() <= 0){
             setWinner(opponent);
@@ -52,10 +56,6 @@ public class Game {
         if(opponent.getLifepoints() <= 0){
             setWinner(player);
         }
-    }
-
-    public void setCurrentPlayer(Player currentPlayer) {
-        this.currentPlayer = currentPlayer;
     }
 
     public void switchPlayer(){
@@ -68,6 +68,9 @@ public class Game {
         }
     }
 
+    /**
+     * Creates deck of monster cards based on a csv file with the form: Monster Name, Level, Attack, Defense.
+     */
     public void createDeck(Player player, String fileName){
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
@@ -89,9 +92,12 @@ public class Game {
         }
     }
 
+
+    /**
+     * Starts new game with decks based on Starter Deck Yugi and Starter Deck Kaiba. Each player starts with 8000 lifepoints nad 5 cards in their hand.
+     * Player 1 starts the game first.
+     */
     public void startNewGame(){
-
-
         player  = new Player("PLAYER 1", 8000);
         opponent = new Player("PLAYER 2", 8000);
 

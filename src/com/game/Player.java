@@ -15,8 +15,21 @@ public class Player {
     Field field;
     boolean monsterSummoned;
 
+    public Player(String name, int lp){
+        playerName = name;
+        lifepoints = lp;
+        hand = new Hand(this);
+        deck = new Deck();
+        field = new Field(this);
+        monsterSummoned = false;
+    }
+
     public String getPlayerName() {
         return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public int getLifepoints() {
@@ -37,15 +50,6 @@ public class Player {
 
     public Deck getDeck() {
         return deck;
-    }
-
-    public Player(String name, int lp){
-        playerName = name;
-        lifepoints = lp;
-        hand = new Hand(this);
-        deck = new Deck();
-        field = new Field(this);
-        monsterSummoned = false;
     }
 
     public Boolean selectCardInHand(Card card){
@@ -69,6 +73,9 @@ public class Player {
         return false;
     }
 
+    /**
+     * Monsters is moved from the hand to the field in attack position. Monsters can only be summoned during MAIN PHASE 1 or MAIN PHASE 2
+     */
     public void summonMonster(MonsterCard monsterCard){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
                 field.setMonster(monsterCard);
@@ -77,6 +84,9 @@ public class Player {
         }
     }
 
+    /**
+     * Monsters with level 4 or higher need to be tribute summoned. Not implemented yet.
+     */
     public void tributeSummon(MonsterCard monsterCard, MonsterCard tribute, String mode){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
             if (monsterCard.getLevel() > 4 && this.monsterSummoned == false) {
@@ -89,6 +99,9 @@ public class Player {
         }
     }
 
+    /**
+     * Not implemented yet.
+     */
     public void flipMonster(MonsterCard monsterCard){
         if(monsterCard.getFaceDown()){
             monsterCard.setFaceDown(false);
@@ -96,6 +109,12 @@ public class Player {
         }
     }
 
+    /**
+     * A monster can only attack an opponent's monster if it is in ATTACK position and if the player is in BATTLE PHASE. If the player's monster has a higher attack
+     * than the opponent's monster and both monsters are in ATTACK position, the opponent's monster is removed from the field and the difference between the player's
+     * monster's attack points and the opponent's monster's attack points is subtracted from the opponent's lifepoints. If the opponent's monster is in defense mode,
+     * the monster is removed without the opponent losing any lifepoints.
+     */
     public void attack(MonsterCard monsterCard, MonsterCard opponentMonsterCard, Player opponent){
         if (monsterCard.getHaveAttacked()){
             JOptionPane.showMessageDialog(null, "Monster cannot attack twice in a turn");
@@ -132,6 +151,10 @@ public class Player {
 
     }
 
+    /**
+     * If there are no monsters on the field, the monster can attack the opponent's lifepoints directly. The monster's attack points are subtracted from the
+     * opponent's lifepoints.
+     */
     public void attackDirectly(MonsterCard monsterCard, Player opponent){
         if (monsterCard.getHaveAttacked()){
             JOptionPane.showMessageDialog(null, "Monster cannot attack twice in a turn");
@@ -143,6 +166,9 @@ public class Player {
         }
     }
 
+    /**
+     * Switches monster from ATTACK to DEFENSE or from DEFENSE to ATTACK. Can only switch modes during MAIN PHASE 1 or MAIN PHASE 2.
+     */
     public boolean switchMonsterMode(MonsterCard monsterCard){
         if(field.getPhase() == "MAIN PHASE 1" || field.getPhase() == "MAIN PHASE 2") {
             if (monsterCard.getMode() == "ATTACK") {
@@ -177,6 +203,9 @@ public class Player {
         return card;
     }
 
+    /**
+     * Changes phase from MAIN PHASE 1 to BATTLE PHASE or from BATTLE PHASE to MAIN PHASE 2.
+     */
     public void endPhase(String phase){
         if(phase == "MAIN PHASE 1"){
             this.getField().setPhase("BATTLE PHASE");
@@ -184,11 +213,12 @@ public class Player {
         else if(phase == "BATTLE PHASE"){
             this.getField().setPhase("MAIN PHASE 2");
         }
-//        else{
-//            endTurn();
-//        }
     }
 
+    /**
+     * Set monsterSummoned to be false and  haveAttacked for all monsters on the field to be false. This enables the player to summon and attack
+     * during the next turn since the player can only summon one monster and attack once with each monster during each turn.
+     */
     public void endTurn(){
         this.monsterSummoned = false;
         this.getField().setPhase("MAIN PHASE 1");
