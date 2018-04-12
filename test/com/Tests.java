@@ -1,9 +1,7 @@
 package com;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-
 import com.game.Game;
 import com.game.MonsterCard;
 import com.game.Player;
@@ -14,10 +12,8 @@ import com.gui.exceptions.WrongPhaseException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import javax.swing.*;
 import java.util.ArrayList;
-
 
 public class Tests {
     private Game game;
@@ -28,7 +24,6 @@ public class Tests {
         game = newGame;
         game.startNewGame();
     }
-
 
     /**
      * Tests max hand size.

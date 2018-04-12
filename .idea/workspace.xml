@@ -2,39 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="210ec2d8-278d-4971-a68d-d0e6728b2b29" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/yugioh/com/gui/listeners/FieldSelectListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/gui/listeners/FieldSelectListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/gui/listeners/FieldSelectListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/gui/listeners/HighlightArea.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/gui/listeners/HighlightArea.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/gui/listeners/MonsterActionListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/gui/listeners/MonsterActionListener.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/com/game/OpponentPlayerStrategy.class" afterPath="$PROJECT_DIR$/out/production/yugioh/com/game/OpponentPlayerStrategy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/com/gui/listeners/AttackListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/com/gui/listeners/AttackListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/com/gui/listeners/DefenseModeListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/com/gui/listeners/DefenseModeListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/yugioh/com/gui/listeners/EndTurnListener.class" afterPath="$PROJECT_DIR$/out/production/yugioh/com/gui/listeners/EndTurnListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/game/OpponentPlayerStrategy.class" afterPath="$PROJECT_DIR$/src/com/game/OpponentPlayerStrategy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/exceptions/DefenseModeException.class" afterPath="$PROJECT_DIR$/src/com/gui/exceptions/DefenseModeException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/AttackListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/AttackListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/DefenseModeListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/DefenseModeListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/EndTurnListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/EndTurnListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/yugioh/com/Tests.class" afterPath="$PROJECT_DIR$/out/test/yugioh/com/Tests.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/GUI.class" afterPath="$PROJECT_DIR$/src/com/gui/GUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/OpponentStrategyListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/OpponentStrategyListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/PhaseListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/PhaseListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/PopUpListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/PopUpListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectAttackTargetListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectAttackTargetListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldCardListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldCardListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldMonsterListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldMonsterListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectHandCardListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectHandCardListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/ShowLargerImage.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/ShowLargerImage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/ShowOpponentLargerImage.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/ShowOpponentLargerImage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/StartAttackListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/StartAttackListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.class" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/game/OpponentPlayerStrategy.java" afterPath="$PROJECT_DIR$/src/com/game/OpponentPlayerStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/GUI.java" afterPath="$PROJECT_DIR$/src/com/gui/GUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/AttackListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/AttackListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/DefenseModeListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/DefenseModeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/EndTurnListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/EndTurnListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/OpponentStrategyListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/OpponentStrategyListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/PhaseListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/PhaseListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/PopUpListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/PopUpListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectAttackTargetListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectAttackTargetListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldCardListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldCardListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldMonsterListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectFieldMonsterListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SelectHandCardListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SelectHandCardListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/ShowLargerImage.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/ShowLargerImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/ShowOpponentLargerImage.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/ShowOpponentLargerImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/StartAttackListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/StartAttackListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.java" afterPath="$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/Tests.java" afterPath="$PROJECT_DIR$/test/com/Tests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/maven/target/" />
@@ -53,7 +35,7 @@
       <file leaf-file-name="SelectFieldCardListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectFieldCardListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="180">
               <caret line="19" column="66" lean-forward="false" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -104,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectHandCardListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectHandCardListener.java">
+      <file leaf-file-name="Tests.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/com/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="289">
+              <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,20 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SummonMonsterListener.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PhaseListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/PhaseListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="210">
               <caret line="19" column="119" lean-forward="false" selection-start-line="19" selection-start-column="119" selection-end-line="19" selection-end-column="119" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -154,7 +126,7 @@
       <file leaf-file-name="SelectAttackTargetListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectAttackTargetListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
+            <state relative-caret-position="75">
               <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="13" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -231,7 +203,6 @@
         <option value="$PROJECT_DIR$/src/com/game/test/Tests.java" />
         <option value="$PROJECT_DIR$/src/com/game/test/com/Tests.java" />
         <option value="$PROJECT_DIR$/src/com/gui/mainGUI.java" />
-        <option value="$PROJECT_DIR$/test/com/Tests.java" />
         <option value="$PROJECT_DIR$/src/com/game/Card.java" />
         <option value="$PROJECT_DIR$/src/com/game/Deck.java" />
         <option value="$PROJECT_DIR$/src/com/game/Field.java" />
@@ -262,6 +233,7 @@
         <option value="$PROJECT_DIR$/src/com/gui/listeners/ShowLargerImage.java" />
         <option value="$PROJECT_DIR$/src/com/gui/listeners/StartAttackListener.java" />
         <option value="$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.java" />
+        <option value="$PROJECT_DIR$/test/com/Tests.java" />
       </list>
     </option>
   </component>
@@ -286,8 +258,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -300,34 +271,6 @@
               <item name="yugioh" type="b2602c69:ProjectViewProjectNode" />
               <item name="yugioh" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yugioh" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yugioh" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yugioh" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yugioh" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yugioh" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yugioh" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yugioh" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yugioh" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="listeners" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yugioh" type="b2602c69:ProjectViewProjectNode" />
@@ -348,7 +291,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -522,16 +466,14 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Android JUnit.Tests" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in test" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.Tests" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.All in test" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Tests" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="JUnit.Tests" />
-        <item index="1" class="java.lang.String" itemvalue="Android JUnit.Tests" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.All in test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in test" />
       </list>
     </recent_temporary>
   </component>
@@ -586,7 +528,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -594,13 +535,11 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2395087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2045177" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28659162" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0036630037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -611,7 +550,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28659162" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -708,66 +650,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/HandTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/HandTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TEST-test.Tests.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TEST-Tests.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/TEST-Tests.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/test/Tests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/test.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/HandTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/game/HandTest.java" />
+    <entry file="file://$PROJECT_DIR$/TEST-test.Tests.txt" />
+    <entry file="file://$PROJECT_DIR$/TEST-Tests.txt" />
+    <entry file="file://$PROJECT_DIR$/test/TEST-Tests.txt" />
+    <entry file="file://$PROJECT_DIR$/src/com/test/Tests.java" />
+    <entry file="file://$PROJECT_DIR$/test/com/test.iml" />
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -788,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="439" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,16 +718,6 @@
             <element signature="e#674#675#0" expanded="true" />
             <element signature="e#1218#1219#0" expanded="true" />
             <element signature="e#1243#1244#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/Tests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="99" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -896,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,7 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,7 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -960,22 +836,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/FieldSelectListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/HighlightArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/FieldSelectListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/HighlightArea.java" />
     <entry file="file://$PROJECT_DIR$/src/com/gui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
@@ -984,14 +846,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/MonsterActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/MonsterActionListener.java" />
     <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/EndTurnListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1014,7 +869,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/PhaseListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="210">
           <caret line="19" column="119" lean-forward="false" selection-start-line="19" selection-start-column="119" selection-end-line="19" selection-end-column="119" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1035,7 +890,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectAttackTargetListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="75">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="13" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1043,17 +898,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectFieldMonsterListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectFieldCardListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="180">
           <caret line="19" column="66" lean-forward="false" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1087,6 +934,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectHandCardListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1097,11 +952,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SummonMonsterListener.java">
+    <entry file="file://$PROJECT_DIR$/src/com/gui/listeners/SelectFieldMonsterListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state relative-caret-position="60">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/Tests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
