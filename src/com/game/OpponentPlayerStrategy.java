@@ -194,9 +194,7 @@ public class OpponentPlayerStrategy {
         game.switchPlayer();
         String currentPlayer = game.getCurrentPlayer().getPlayerName();
         gui.getInfoPanel().getCurrentPhasePanel().setText("<html>" + currentPlayer + "<br> MAIN PHASE 1 </html>");
-        JPanel phaseControlPanel = new PhaseControlPanel(gui);
-        phaseControlPanel.setBounds(1180,620,140,105);
-        gui.add(phaseControlPanel);
+        
         Component[] componentList = gui.getCardControlPanel().getComponents();
         for(Component c : componentList){
             gui.getCardControlPanel().remove(c);

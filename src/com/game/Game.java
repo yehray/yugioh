@@ -101,8 +101,8 @@ public class Game {
         player  = new Player("PLAYER 1", 8000);
         opponent = new Player("PLAYER 2", 8000);
 
-        createDeck(player, "/Users/yehray/IdeaProjects/yugioh/src/com/game/cards/YugiDeck.csv");
-        createDeck(opponent, "/Users/yehray/IdeaProjects/yugioh/src/com/game/cards/KaibaDeck.csv");
+        createDeck(player, "./src/com/game/cards/YugiDeck.csv");
+        createDeck(opponent, "./src/com/game/cards/KaibaDeck.csv");
 
         player.getDeck().shuffleDeck();
         opponent.getDeck().shuffleDeck();

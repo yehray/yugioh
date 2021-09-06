@@ -12,7 +12,7 @@ public class SummonMonsterListener extends MouseAdapter {
     private MonsterCard monsterCard;
     private GUI gui;
     private HandButton handButton;
-
+    
     /**
      * Move selected monster from the hand to the field.
      */
@@ -20,7 +20,7 @@ public class SummonMonsterListener extends MouseAdapter {
         handButton = hb;
         monsterCard = handButton.getCard();
         gui = currentGUI;
-
+	fieldPanel = gui.getActivePlayer().getFieldPanel();
     }
 
     public void mouseClicked(MouseEvent e) {
