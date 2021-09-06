@@ -21,7 +21,7 @@ public class PhaseControlPanel extends JPanel {
         GridLayout layout = new GridLayout(2,1);
         layout.setVgap(10);
         this.setLayout(layout);
-
+	
         JButton endPhaseButton = new JButton("END PHASE");
         endPhaseButton.addMouseListener(new PhaseListener(gui));
         endTurnButton = new JButton("END TURN");
