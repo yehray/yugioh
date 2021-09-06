@@ -8,10 +8,10 @@ public class GetCardImage {
     private ImageIcon cardImage;
     public GetCardImage(Card card, String size){
         if(size == "s") {
-            ImageIcon cardImage = new ImageIcon(this.getClass().getResource("/Users/yehray/IdeaProjects/yugioh/src/com.gui/resources/Summoned Skull.jpg"));
+            ImageIcon cardImage = new ImageIcon(this.getClass().getResource("./src/com.gui/resources/Summoned Skull.jpg"));
         }
         else{
-            ImageIcon cardImage = new ImageIcon(this.getClass().getResource("/Users/yehray/IdeaProjects/yugioh/src/com.gui/resources/Summoned Skull.jpg"));
+            ImageIcon cardImage = new ImageIcon(this.getClass().getResource("./src/com.gui/resources/Summoned Skull.jpg"));
 
         }
     }
